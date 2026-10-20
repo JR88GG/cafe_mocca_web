@@ -49,3 +49,36 @@ class CategoriaOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+
+# ---------- Producto ----------
+
+class ProductoCreate(BaseModel):
+    nombre: str = Field(min_length=2, max_length=100)
+    precio: float = Field(gt=0)
+    stock: int = Field(ge=0)
+
+
+class ProductoOut(BaseModel):
+    id: int
+    nombre: str
+    precio: float
+    stock: int
+
+    class Config:
+        from_attributes = True
+    
+    nombre: str
+
+    class Config:
+        from_attributes = True
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
