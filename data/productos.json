@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "categoria_id": 1,
+    "nombre": "Baguette Rústico",
+    "descripcion": "Pan crujiente por fuera y suave por dentro.",
+    "precio_base": 1.50,
+    "imagen_url": "baguette.jpg",
+    "activo": true,
+    "es_personalizable": false
+  },
+  {
+    "id": 2,
+    "categoria_id": 2,
+    "nombre": "Croissant de Mantequilla",
+    "descripcion": "Hojaldre crujiente hecho con mantequilla pura.",
+    "precio_base": 2.25,
+    "imagen_url": "croissant.jpg",
+    "activo": true,
+    "es_personalizable": false
+  },
+  {
+    "id": 3,
+    "categoria_id": 2,
+    "nombre": "Pastel Personalizado de Chocolate",
+    "descripcion": "Delicioso pastel de chocolate con opciones de personalización.",
+    "precio_base": 18.00,
+    "imagen_url": "pastel_choco.jpg",
+    "activo": true,
+    "es_personalizable": true
+  }
+]

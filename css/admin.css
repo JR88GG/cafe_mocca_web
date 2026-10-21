@@ -1,0 +1,162 @@
+/* Layout General Admin */
+.mocca-admin-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .mocca-admin-wrapper {
+    flex-direction: row;
+  }
+  .mocca-sidebar {
+    width: 240px;
+    min-height: 100vh;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    border-right: 1px solid var(--mocca-borde);
+    background-color: var(--mocca-blanco);
+  }
+}
+
+.mocca-sidebar {
+  background-color: var(--mocca-blanco);
+}
+
+.mocca-admin-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mocca-admin-topbar {
+  background-color: var(--mocca-blanco);
+  border-bottom: 1px solid var(--mocca-borde);
+  padding: 16px 24px;
+}
+
+.mocca-admin-content {
+  padding: 24px;
+  flex: 1 1 auto;
+}
+
+/* Enlaces del Sidebar */
+.mocca-side-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--mocca-radio);
+  color: var(--mocca-texto);
+  text-decoration: none;
+  font-weight: 500;
+  min-height: 44px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.mocca-side-link:hover {
+  background-color: var(--mocca-rosa-suave);
+  color: var(--mocca-cafe);
+}
+
+.mocca-side-link.active {
+  background-color: var(--mocca-rosa);
+  color: var(--mocca-cafe);
+  font-weight: 600;
+  border: 1px solid var(--mocca-rosa-intenso);
+}
+
+/* Tarjeta Usuario Admin en Sidebar */
+.mocca-admin-user-box {
+  background-color: var(--mocca-crema);
+  border: 1px solid var(--mocca-borde);
+  border-radius: var(--mocca-radio);
+  padding: 12px;
+}
+
+/* Tarjetas KPI */
+.mocca-kpi-card {
+  background-color: var(--mocca-blanco);
+  border: 1px solid var(--mocca-borde);
+  border-radius: var(--mocca-radio);
+  box-shadow: var(--mocca-sombra);
+  padding: 20px;
+  height: 100%;
+}
+
+.mocca-kpi-value {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--mocca-espresso);
+}
+
+/* Contenedor de Tablas Admin */
+.mocca-table-card {
+  background-color: var(--mocca-blanco);
+  border: 1px solid var(--mocca-borde);
+  border-radius: var(--mocca-radio);
+  box-shadow: var(--mocca-sombra);
+  overflow: hidden;
+}
+
+.mocca-table thead th {
+  background-color: var(--mocca-crema);
+  color: var(--mocca-texto-suave);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--mocca-borde);
+  padding: 12px 16px;
+}
+
+.mocca-table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--mocca-borde);
+  color: var(--mocca-texto);
+}
+
+.mocca-table tbody tr:hover {
+  background-color: var(--mocca-rosa-suave);
+}
+
+/* Pestañas (Tabs) de Bootstrap adaptadas a Café Mocca */
+.mocca-tabs .nav-link {
+  color: var(--mocca-texto-suave);
+  font-weight: 600;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 12px 20px;
+  min-height: 44px;
+}
+
+.mocca-tabs .nav-link:hover {
+  color: var(--mocca-cafe);
+}
+
+.mocca-tabs .nav-link.active {
+  color: var(--mocca-cafe);
+  background-color: transparent;
+  border-bottom-color: var(--mocca-cafe);
+}
+
+/* Opciones seleccionables en Personalizar */
+.mocca-option-card {
+  background-color: var(--mocca-blanco);
+  border: 1px solid var(--mocca-borde-input);
+  border-radius: var(--mocca-radio);
+  padding: 12px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+}
+
+.mocca-option-card:hover {
+  background-color: var(--mocca-rosa-suave);
+}

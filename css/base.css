@@ -1,0 +1,51 @@
+:root {
+  --bs-primary: #783B26;
+  --bs-primary-rgb: 120, 59, 38;
+  --bs-body-bg: var(--mocca-crema);
+  --bs-body-color: var(--mocca-texto);
+  --bs-body-font-family: "Inter", system-ui, -apple-system, sans-serif;
+  --bs-link-color-rgb: 120, 59, 38;
+  --bs-link-hover-color-rgb: 90, 42, 26;
+  --bs-border-color: var(--mocca-borde);
+}
+
+body {
+  background-color: var(--mocca-crema);
+  color: var(--mocca-texto);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6,
+.mocca-heading {
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  color: var(--mocca-espresso);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.texto-suave {
+  color: var(--mocca-texto-suave);
+}
+
+/* Foco visible accesible por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--mocca-cafe);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Mocca — Tu Carrito</title>
+
+    <!-- Bootstrap 5.3 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts Oficiales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Hojas de estilo del proyecto -->
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, #FAF6F0) !important;
+            color: var(--mocca-texto, #2C1810) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .btn-mocca-primary {
+            background-color: var(--mocca-cafe, #783B26) !important;
+            border-color: var(--mocca-cafe, #783B26) !important;
+            color: #FFFFFF !important;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mocca-primary:hover:not(:disabled) {
+            background-color: #5C2D1D !important;
+            border-color: #5C2D1D !important;
+        }
+
+        .btn-mocca-secondary {
+            background-color: var(--mocca-rosa, #F9CEDF) !important;
+            color: var(--mocca-cafe, #783B26) !important;
+            border: 1px solid var(--mocca-rosa, #F9CEDF) !important;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-mocca-secondary:hover {
+            background-color: #F4B8CE !important;
+            color: var(--mocca-cafe, #783B26) !important;
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid #E5DCD3 !important;
+            background-color: #FFFFFF !important;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header / Navbar Oficial Adaptado de Jaime -->
+    <header class="sticky-top bg-white border-bottom shadow-sm py-2">
+        <nav class="navbar navbar-expand-lg container">
+            <a class="navbar-brand font-title fw-bold fs-5 d-flex align-items-center gap-2" style="color: var(--mocca-cafe, #783B26);" href="catalogo.html">
+                <img src="img/logo/logo-cafe-mocca.webp" alt="Café Mocca Logo" width="35" height="35" style="object-fit: contain;">
+                <span>Café Mocca</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse order-lg-2" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1 align-items-lg-center">
+                    <li class="nav-item"><a class="mocca-nav-link nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="mocca-nav-link nav-link" href="catalogo.html">Menú y Catálogo</a></li>
+                    <li class="nav-item"><a class="mocca-nav-link nav-link" href="personalizar.html">Personalizar Pastel</a></li>
+                    <li class="nav-item"><a class="mocca-nav-link nav-link active fw-bold" aria-current="page" href="carrito.html" style="color: var(--mocca-cafe, #783B26);">🛒 Carrito</a></li>
+                    <li class="nav-item"><a class="mocca-nav-link nav-link" href="seguimiento.html">Seguimiento</a></li>
+                    <li class="nav-item"><a class="mocca-nav-link nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="mocca-nav-link nav-link" href="login.html"><i class="bi bi-person me-1" aria-hidden="true"></i>Cuenta</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal Carrito -->
+    <main class="container py-4 flex-grow-1">
+        <div class="row mb-3">
+            <div class="col-12">
+                <h1 class="font-title fw-bold fs-4 mb-1" style="color: var(--mocca-cafe, #783B26);">Tu Carrito de Compras</h1>
+                <p class="text-muted small">Revisa tus productos seleccionados antes de proceder al pago.</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Lista de Productos en el Carrito -->
+            <div class="col-12 col-lg-8">
+                <div class="mocca-card p-3 p-md-4 shadow-sm">
+                    <div id="cart-items-list" class="vstack gap-3">
+                        <!-- Se llena dinámicamente con JavaScript -->
+                        <div class="text-center py-4 text-muted small">Cargando carrito...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen y Checkout -->
+            <div class="col-12 col-lg-4">
+                <div class="mocca-card p-4 shadow-sm position-sticky" style="top: 80px;">
+                    <h2 class="font-title fw-bold fs-6 mb-3 pb-2 border-bottom" style="color: var(--mocca-cafe, #783B26);">Resumen de la Orden</h2>
+                    
+                    <div class="vstack gap-2 mb-3">
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>Envío estimado</span>
+                            <span id="cart-envio">$3.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between font-title fw-bold fs-5 pt-2 border-top" style="color: var(--mocca-cafe, #783B26);">
+                            <span>Total</span>
+                            <span id="cart-total">$3.00</span>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <a href="checkout.html" id="btn-proceed-checkout" class="btn btn-mocca-primary fw-bold py-2 text-center text-decoration-none">
+                            Proceder al Pago
+                        </a>
+                        <button id="btn-clear-cart" class="btn btn-outline-danger btn-sm rounded-pill border-0 text-muted small py-1">
+                            Vaciar Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-3 text-center bg-white border-top mt-auto">
+        <div class="container">
+            <p class="small text-muted mb-0">&copy; 2026 Café Mocca. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de Gestión del Carrito Sincronizado -->
+    <script type="module">
+        const STORAGE_KEY = 'mocca_cart_v2';
+
+        let carritoVacidoManualmente = false;
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-list');
+            let carrito = [];
+            
+            try {
+                carrito = JSON.parse(localStorage.getItem(STORAGE_KEY));
+            } catch (e) {
+                carrito = null;
+            }
+
+            if ((!carrito || carrito.length === 0) && !carritoVacidoManualmente && localStorage.getItem(STORAGE_KEY) === null) {
+                carrito = [
+                    { nombre: 'Café Latte Artesanal', precio: 3.50, cantidad: 2, imagen: 'img/productos/barista-latte-art.webp' },
+                    { nombre: 'Quiche Artesanal', precio: 2.75, cantidad: 1, imagen: 'img/productos/quiche-artesanal.webp' }
+                ];
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
+            } else if (!carrito) {
+                carrito = [];
+            }
+
+            if (carrito.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-5 text-muted">
+                        <p class="fs-5 mb-2">🛒 Tu carrito está vacío</p>
+                        <a href="catalogo.html" class="btn btn-mocca-secondary btn-sm px-4">Explorar Menú</a>
+                    </div>
+                `;
+                document.getElementById('cart-subtotal').textContent = '$0.00';
+                document.getElementById('cart-total').textContent = '$0.00';
+                document.getElementById('btn-proceed-checkout').classList.add('disabled');
+                return;
+            }
+
+            let subtotal = 0;
+            let html = '';
+
+            carrito.forEach((item, index) => {
+                const itemTotal = item.precio * item.cantidad;
+                subtotal += itemTotal;
+                
+                const imgRuta = item.imagen && item.imagen.trim() !== '' 
+                    ? item.imagen 
+                    : 'img/productos/barista-latte-art.webp';
+
+                html += `
+                    <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="${imgRuta}" alt="${item.nombre}" width="60" height="60" class="rounded-3 shadow-sm" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy">
+                            <div>
+                                <h6 class="mb-1 fw-semibold" style="color: var(--mocca-texto, #2C1810);">${item.nombre}</h6>
+                                <small class="text-muted">$${item.precio.toFixed(2)} c/u</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="input-group input-group-sm" style="width: 100px;">
+                                <button class="btn btn-outline-secondary px-2" type="button" onclick="window.updateQuantity(${index}, -1)">-</button>
+                                <input type="text" class="form-control text-center bg-white" value="${item.cantidad}" readonly>
+                                <button class="btn btn-outline-secondary px-2" type="button" onclick="window.updateQuantity(${index}, 1)">+</button>
+                            </div>
+                            <span class="fw-semibold text-end" style="color: var(--mocca-cafe, #783B26); width: 60px;">$${itemTotal.toFixed(2)}</span>
+                            <button class="btn btn-link text-danger p-0 ms-2" onclick="window.removeItem(${index})" title="Eliminar">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            const envio = 3.00;
+            const total = subtotal + envio;
+
+            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+            document.getElementById('btn-proceed-checkout').classList.remove('disabled');
+        }
+
+        window.updateQuantity = function(index, change) {
+            let carrito = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            if (carrito[index]) {
+                carrito[index].cantidad += change;
+                if (carrito[index].cantidad <= 0) {
+                    carrito.splice(index, 1);
+                }
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
+                renderCart();
+            }
+        };
+
+        window.removeItem = function(index) {
+            let carrito = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
+            renderCart();
+        };
+
+        document.getElementById('btn-clear-cart').addEventListener('click', () => {
+            carritoVacidoManualmente = true;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
+            renderCart();
+        });
+
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>

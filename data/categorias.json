@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombre": "Panes Artesanales",
+    "descripcion": "Panes horneados diariamente con masa madre.",
+    "activo": true
+  },
+  {
+    "id": 2,
+    "nombre": "Repostería Fina",
+    "descripcion": "Pasteles, tartas y postres dulces.",
+    "activo": true
+  },
+  {
+    "id": 3,
+    "nombre": "Bebidas",
+    "descripcion": "Café de altura, té y bebidas frías.",
+    "activo": true
+  }
+]
