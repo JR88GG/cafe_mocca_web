@@ -6,6 +6,8 @@
 
 > Lo que el profesor ya valoró y **no se toca**: las 9 tablas, los tipos PostgreSQL, las PK/FK y las restricciones. Este plan **añade** lo que faltaba; no rehace lo que está bien.
 
+> **Actualización:** la versión ejecutable de este esquema es `cafe_mocca_schema.sql` (probada en PostgreSQL 16). Es la fuente de verdad: si algo de este documento difiere, manda el script. Las diferencias están listadas en `GUIA_DESARROLLO.md`, sección 9.
+
 ---
 
 ## 1. De la observación a la tarea
@@ -236,7 +238,7 @@ El diagrama debe decir **uno a cero-o-uno** (`||--o|`), y el texto también. El 
 | alergenos | varchar(255) | | "Contiene gluten, lácteos y huevo" |
 | precio_base | numeric(10,2) | `CHECK (precio_base >= 0)` | (ya existía; solo se agrega el CHECK) |
 
-**`inventario` → `inventario_producto`**: mismo contenido, nombre claro para que no se confunda con insumos. Agregar `stock_minimo integer NOT NULL default 0 CHECK (stock_minimo >= 0)` (el dashboard muestra "productos bajos") y `CHECK (cantidad_disponible >= 0)`. Aplica solo a productos de disponibilidad inmediata (croissants, donas), no a los de bajo pedido.
+**`inventario` → `inventario_producto`**: mismo contenido, nombre claro para que no se confunda con insumos, y **PK compartida** (`producto_id` es PK y FK, sin `id` propio; mismo criterio que `personalizacion`). Agregar `stock_minimo integer NOT NULL default 0 CHECK (stock_minimo >= 0)` (el dashboard muestra "productos bajos") y `CHECK (cantidad_disponible >= 0)`. Aplica solo a productos de disponibilidad inmediata (croissants, donas), no a los de bajo pedido.
 
 **`pedidos`**
 
@@ -266,6 +268,8 @@ El diagrama debe decir **uno a cero-o-uno** (`||--o|`), y el texto también. El 
 **`sugerencias_ia`**: agregar `costo_unitario_ref numeric(12,4)` y `estado varchar(10) CHECK (estado IN ('pendiente','aceptada','descartada'))` (el panel tiene botones de "aplicar"). Regla: **el precio sugerido nunca puede quedar por debajo del costo** más el margen mínimo de `configuracion`.
 
 **Detalle importante de SQLAlchemy:** en nuestro `models.py` los enums usan `native_enum=False`. Desde SQLAlchemy 1.4 eso **ya no crea el CHECK** por defecto: la columna quedó como texto libre. Para que cuente como "restricción" ante el profesor, hay que agregar `create_constraint=True` o declarar un `CheckConstraint` explícito.
+
+> **Actualización:** como el esquema ahora se crea con `cafe_mocca_schema.sql` (que ya trae todos los `CHECK`) y se elimina `create_all`, esto deja de aplicar: `models.py` solo mapea tablas que ya existen.
 
 ---
 
