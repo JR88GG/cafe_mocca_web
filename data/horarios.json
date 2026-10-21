@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "dias": "Lun a vie",
+    "horario": "7:00 a.m.–5:30 p.m."
+  },
+  {
+    "id": 2,
+    "dias": "Sáb",
+    "horario": "7:30 a.m.–4:00 p.m."
+  },
+  {
+    "id": 3,
+    "dias": "Dom",
+    "horario": "8:00 a.m.–2:00 p.m."
+  }
+]

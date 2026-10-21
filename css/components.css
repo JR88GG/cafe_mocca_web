@@ -1,0 +1,265 @@
+/* Botón Primario (Máximo 1 por pantalla) */
+.btn-primary {
+  --bs-btn-bg: var(--mocca-cafe);
+  --bs-btn-border-color: var(--mocca-cafe);
+  --bs-btn-color: var(--mocca-blanco);
+  --bs-btn-hover-bg: var(--mocca-cafe-profundo);
+  --bs-btn-hover-border-color: var(--mocca-cafe-profundo);
+  --bs-btn-active-bg: var(--mocca-cafe-profundo);
+  --bs-btn-active-border-color: var(--mocca-cafe-profundo);
+  --bs-btn-focus-shadow-rgb: 120, 59, 38;
+  min-height: 44px;
+  border-radius: var(--mocca-radio);
+  font-weight: 600;
+  padding: 8px 20px;
+}
+
+/* Botón Secundario (Rosa pastel con texto café) */
+.btn-mocca-secondary {
+  background-color: var(--mocca-rosa);
+  color: var(--mocca-cafe);
+  border: 1px solid var(--mocca-rosa-intenso);
+  min-height: 44px;
+  border-radius: var(--mocca-radio);
+  font-weight: 600;
+  padding: 8px 16px;
+  transition: background-color 150ms ease, color 150ms ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-mocca-secondary:hover,
+.btn-mocca-secondary:active {
+  background-color: var(--mocca-cafe);
+  color: var(--mocca-blanco);
+  border-color: var(--mocca-cafe);
+}
+
+/* Navbar y Logo */
+.mocca-navbar {
+  background-color: var(--mocca-blanco);
+  border-bottom: 1px solid var(--mocca-borde);
+  box-shadow: var(--mocca-sombra);
+}
+
+.mocca-logo-header {
+  height: 44px;
+  width: auto;
+  margin: 8px;
+  object-fit: contain;
+}
+
+.mocca-nav-link {
+  color: var(--mocca-espresso);
+  font-weight: 500;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.mocca-nav-link:hover,
+.mocca-nav-link.active {
+  color: var(--mocca-cafe);
+  background-color: var(--mocca-rosa-suave);
+}
+
+/* Contador del carrito en Cereza */
+.mocca-cart-badge {
+  background-color: var(--mocca-cereza);
+  color: var(--mocca-blanco);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* Hero Banner */
+.mocca-hero {
+  background-color: var(--mocca-rosa-suave);
+  border: 1px solid var(--mocca-rosa-intenso);
+  border-radius: var(--mocca-radio);
+  box-shadow: var(--mocca-sombra);
+}
+
+/* Chips de Categoría */
+.mocca-chip {
+  background-color: var(--mocca-blanco);
+  color: var(--mocca-texto);
+  border: 1px solid var(--mocca-borde-input);
+  border-radius: 999px;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 150ms ease;
+}
+
+.mocca-chip:hover {
+  background-color: var(--mocca-rosa-suave);
+  border-color: var(--mocca-cafe);
+}
+
+.mocca-chip.active {
+  background-color: var(--mocca-cafe);
+  color: var(--mocca-blanco);
+  border-color: var(--mocca-cafe);
+}
+
+/* Tarjeta de Producto */
+.mocca-card {
+  background-color: var(--mocca-blanco);
+  border: 1px solid var(--mocca-borde);
+  border-radius: var(--mocca-radio);
+  box-shadow: var(--mocca-sombra);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 150ms ease;
+}
+
+.mocca-card:hover {
+  transform: translateY(-2px);
+}
+
+.mocca-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--mocca-rosa-suave);
+  overflow: hidden;
+}
+
+.mocca-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mocca-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* Precios en acento Cereza */
+.mocca-price {
+  color: var(--mocca-cereza);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Badges de Estado y Disponibilidad */
+.mocca-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.mocca-badge-floating {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+.mocca-badge-ok {
+  background-color: var(--mocca-ok-bg);
+  color: var(--mocca-ok-fg);
+}
+
+.mocca-badge-aviso {
+  background-color: var(--mocca-aviso-bg);
+  color: var(--mocca-aviso-fg);
+}
+
+.mocca-badge-cereza {
+  background-color: var(--mocca-cereza);
+  color: var(--mocca-blanco);
+}
+
+.mocca-badge-error {
+  background-color: var(--mocca-error-bg);
+  color: var(--mocca-error-fg);
+}
+
+.mocca-badge-info {
+  background-color: var(--mocca-info-bg);
+  color: var(--mocca-info-fg);
+}
+
+.mocca-badge-neutro {
+  background-color: var(--mocca-neutro-bg);
+  color: var(--mocca-neutro-fg);
+}
+
+/* Formularios e Inputs (Ratio 3:1) */
+.form-control,
+.form-select {
+  background-color: var(--mocca-blanco);
+  border: 1px solid var(--mocca-borde-input);
+  border-radius: var(--mocca-radio);
+  color: var(--mocca-texto);
+  min-height: 44px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--mocca-cafe);
+  box-shadow: 0 0 0 0.2rem rgba(120, 59, 38, 0.2);
+}
+
+/* Selector de Cantidad */
+.mocca-qty-btn {
+  min-width: 44px;
+  min-height: 44px;
+  background-color: var(--mocca-rosa);
+  color: var(--mocca-cafe);
+  border: 1px solid var(--mocca-borde-input);
+  font-weight: 700;
+}
+
+/* Estados Vacío / Error / Cargando */
+.mocca-state-box {
+  background-color: var(--mocca-blanco);
+  border: 1px solid var(--mocca-borde);
+  border-radius: var(--mocca-radio);
+  padding: 32px;
+  text-align: center;
+}
+
+/* Footer en Espresso */
+.mocca-footer {
+  background-color: var(--mocca-espresso);
+  color: var(--mocca-crema);
+  padding: 32px 0;
+  margin-top: 48px;
+}
+
+.mocca-footer-logo-box {
+  background-color: var(--mocca-crema);
+  border-radius: var(--mocca-radio);
+  padding: 8px 12px;
+  display: inline-block;
+}
+
+.mocca-footer a {
+  color: var(--mocca-rosa);
+  text-decoration: none;
+}
+
+.mocca-footer a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 4093,
+    "codigo": "#MOC-4093",
+    "fecha": "2026-10-19T20:15:00Z",
+    "cliente_nombre": "Lucía Méndez",
+    "cliente_telefono": "+503 7712-3456",
+    "detalle_resumen": "Pastel de Chocolate & Oreo (Mediano) + Dedicatoria",
+    "tipo_entrega": "Domicilio (4:30 p.m.)",
+    "metodo_pago": "Tarjeta (POS)",
+    "total": "31.49",
+    "estado": "Recibido"
+  },
+  {
+    "id": 4092,
+    "codigo": "#MOC-4092",
+    "fecha": "2026-10-19T19:30:00Z",
+    "cliente_nombre": "Carlos Salgado",
+    "cliente_telefono": "+503 7890-1234",
+    "detalle_resumen": "Club Sándwich Bistro (x2) + Cappuccino Arte Latte",
+    "tipo_entrega": "Domicilio (3:00 p.m.)",
+    "metodo_pago": "Transferencia",
+    "total": "18.25",
+    "estado": "En preparación"
+  },
+  {
+    "id": 4091,
+    "codigo": "#MOC-4091",
+    "fecha": "2026-10-19T17:10:00Z",
+    "cliente_nombre": "Mariana Gómez",
+    "cliente_telefono": "+503 7555-8888",
+    "detalle_resumen": "Crepa Dulce de Fresa y Nutella + Frappé Mocha Oreo",
+    "tipo_entrega": "Retiro en local (11:30 a.m.)",
+    "metodo_pago": "Efectivo",
+    "total": "9.00",
+    "estado": "Listo"
+  },
+  {
+    "id": 4090,
+    "codigo": "#MOC-4090",
+    "fecha": "2026-10-19T15:00:00Z",
+    "cliente_nombre": "Roberto Díaz",
+    "cliente_telefono": "+503 7123-4567",
+    "detalle_resumen": "Pastel de Fresa con Queso (Vitrina)",
+    "tipo_entrega": "Retiro en local (10:00 a.m.)",
+    "metodo_pago": "Tarjeta (POS)",
+    "total": "16.50",
+    "estado": "Entregado"
+  },
+  {
+    "id": 4089,
+    "codigo": "#MOC-4089",
+    "fecha": "2026-10-19T14:20:00Z",
+    "cliente_nombre": "Elena Ramos",
+    "cliente_telefono": "+503 7011-2233",
+    "detalle_resumen": "Hamburguesa Gourmet Café Mocca + Smoothie de Fresa",
+    "tipo_entrega": "Domicilio (1:00 p.m.)",
+    "metodo_pago": "Efectivo",
+    "total": "12.00",
+    "estado": "Cancelado"
+  }
+]

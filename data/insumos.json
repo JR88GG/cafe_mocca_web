@@ -1,0 +1,57 @@
+[
+  {
+    "id": 101,
+    "codigo": "MOC-INV-101",
+    "nombre": "Café en Grano Especialidad (Tueste Medio)",
+    "tipo": "ingrediente",
+    "unidad": "kg",
+    "cantidad_disponible": 2.5,
+    "stock_minimo": 8.0,
+    "costo_promedio": "14.00",
+    "estado": "Bajo"
+  },
+  {
+    "id": 102,
+    "codigo": "MOC-INV-102",
+    "nombre": "Harina de Trigo Pastelería",
+    "tipo": "ingrediente",
+    "unidad": "kg",
+    "cantidad_disponible": 25.0,
+    "stock_minimo": 10.0,
+    "costo_promedio": "1.20",
+    "estado": "OK"
+  },
+  {
+    "id": 103,
+    "codigo": "MOC-INV-103",
+    "nombre": "Queso Crema Artesanal",
+    "tipo": "ingrediente",
+    "unidad": "kg",
+    "cantidad_disponible": 0.0,
+    "stock_minimo": 4.0,
+    "costo_promedio": "6.50",
+    "estado": "Sin stock"
+  },
+  {
+    "id": 104,
+    "codigo": "MOC-INV-104",
+    "nombre": "Fresa Fresca Seleccionada",
+    "tipo": "ingrediente",
+    "unidad": "kg",
+    "cantidad_disponible": 6.0,
+    "stock_minimo": 3.0,
+    "costo_promedio": "3.80",
+    "estado": "OK"
+  },
+  {
+    "id": 105,
+    "codigo": "MOC-EMP-012",
+    "nombre": "Caja Domo para Pastel Mediano",
+    "tipo": "empaque",
+    "unidad": "und",
+    "cantidad_disponible": 45,
+    "stock_minimo": 20,
+    "costo_promedio": "0.85",
+    "estado": "OK"
+  }
+]
