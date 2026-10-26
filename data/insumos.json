@@ -1,57 +1,162 @@
 [
   {
-    "id": 101,
-    "codigo": "MOC-INV-101",
-    "nombre": "Café en Grano Especialidad (Tueste Medio)",
-    "tipo": "ingrediente",
-    "unidad": "kg",
-    "cantidad_disponible": 2.5,
-    "stock_minimo": 8.0,
-    "costo_promedio": "14.00",
-    "estado": "Bajo"
+    "id": 1,
+    "nombre": "Café en Grano (Especialidad)",
+    "categoria": "Materia Prima",
+    "stock_actual": 12.5,
+    "unidad": "Kg",
+    "estado": "Óptimo"
   },
   {
-    "id": 102,
-    "codigo": "MOC-INV-102",
-    "nombre": "Harina de Trigo Pastelería",
-    "tipo": "ingrediente",
-    "unidad": "kg",
-    "cantidad_disponible": 25.0,
-    "stock_minimo": 10.0,
-    "costo_promedio": "1.20",
-    "estado": "OK"
+    "id": 2,
+    "nombre": "Leche Entera",
+    "categoria": "Lácteos",
+    "stock_actual": 3.0,
+    "unidad": "Litros",
+    "estado": "Bajo Stock"
   },
   {
-    "id": 103,
-    "codigo": "MOC-INV-103",
-    "nombre": "Queso Crema Artesanal",
-    "tipo": "ingrediente",
-    "unidad": "kg",
-    "cantidad_disponible": 0.0,
-    "stock_minimo": 4.0,
-    "costo_promedio": "6.50",
-    "estado": "Sin stock"
+    "id": 3,
+    "nombre": "Harina de Trigo Preparada",
+    "categoria": "Repostería",
+    "stock_actual": 25.0,
+    "unidad": "Kg",
+    "estado": "Óptimo"
   },
   {
-    "id": 104,
-    "codigo": "MOC-INV-104",
-    "nombre": "Fresa Fresca Seleccionada",
-    "tipo": "ingrediente",
-    "unidad": "kg",
-    "cantidad_disponible": 6.0,
-    "stock_minimo": 3.0,
-    "costo_promedio": "3.80",
-    "estado": "OK"
+    "id": 4,
+    "nombre": "Azúcar Blanca Refinada",
+    "categoria": "Abarrotes",
+    "stock_actual": 15.0,
+    "unidad": "Kg",
+    "estado": "Óptimo"
   },
   {
-    "id": 105,
-    "codigo": "MOC-EMP-012",
-    "nombre": "Caja Domo para Pastel Mediano",
-    "tipo": "empaque",
-    "unidad": "und",
-    "cantidad_disponible": 45,
-    "stock_minimo": 20,
-    "costo_promedio": "0.85",
-    "estado": "OK"
+    "id": 5,
+    "nombre": "Crema para Batir",
+    "categoria": "Lácteos",
+    "stock_actual": 1.2,
+    "unidad": "Litros",
+    "estado": "Crítico"
+  },
+  {
+    "id": 6,
+    "nombre": "Chocolate Semi-Amargo",
+    "categoria": "Repostería",
+    "stock_actual": 4.5,
+    "unidad": "Kg",
+    "estado": "Bajo Stock"
+  },
+  {
+    "id": 7,
+    "nombre": "Fresas Frescas",
+    "categoria": "Frutas",
+    "stock_actual": 1.5,
+    "unidad": "Kg",
+    "estado": "Crítico"
+  },
+  {
+    "id": 8,
+    "nombre": "Huevos Frescos",
+    "categoria": "Abarrotes",
+    "stock_actual": 120,
+    "unidad": "Unidades",
+    "estado": "Óptimo"
+  },
+  {
+    "id": 9,
+    "nombre": "Jarabe de Vainilla",
+    "categoria": "Saborizantes",
+    "stock_actual": 6,
+    "unidad": "Botellas",
+    "estado": "Óptimo"
+  },
+  {
+    "id": 10,
+    "nombre": "Jamón de Pavo",
+    "categoria": "Carnes",
+    "stock_actual": 5.0,
+    "unidad": "Kg",
+    "estado": "Óptimo"
+  },
+  {
+    "id": 11,
+    "nombre": "Queso Mozzarella",
+    "categoria": "Lácteos",
+    "stock_actual": 2.5,
+    "unidad": "Kg",
+    "estado": "Bajo Stock"
+  },
+  {
+    "id": 12,
+    "nombre": "Mantequilla Sin Sal",
+    "categoria": "Lácteos",
+    "stock_actual": 8.0,
+    "unidad": "Kg",
+    "estado": "Óptimo"
+  },
+  {
+    "id": 13,
+    "nombre": "Pan Ciabatta Rústico",
+    "categoria": "Panadería",
+    "stock_actual": 45,
+    "unidad": "Unidades",
+    "estado": "Óptimo"
+  },
+  {
+    "id": 14,
+    "nombre": "Pechuga de Pollo",
+    "categoria": "Carnes",
+    "stock_actual": 2.5,
+    "unidad": "Kg",
+    "estado": "Bajo Stock"
+  },
+  {
+    "id": 15,
+    "nombre": "Tocino Ahumado",
+    "categoria": "Carnes",
+    "stock_actual": 1.0,
+    "unidad": "Kg",
+    "estado": "Crítico"
+  },
+  {
+    "id": 16,
+    "nombre": "Té Matcha Orgánico",
+    "categoria": "Materia Prima",
+    "stock_actual": 3.0,
+    "unidad": "Kg",
+    "estado": "Óptimo"
+  },
+  {
+    "id": 17,
+    "nombre": "Vasos Desechables (12 oz)",
+    "categoria": "Empaques",
+    "stock_actual": 45,
+    "unidad": "Unidades",
+    "estado": "Crítico"
+  },
+  {
+    "id": 18,
+    "nombre": "Cajas para Pasteles",
+    "categoria": "Empaques",
+    "stock_actual": 150,
+    "unidad": "Unidades",
+    "estado": "Óptimo"
+  },
+  {
+    "id": 19,
+    "nombre": "Tomate Cherry",
+    "categoria": "Verduras",
+    "stock_actual": 0.8,
+    "unidad": "Kg",
+    "estado": "Crítico"
+  },
+  {
+    "id": 20,
+    "nombre": "Esencia de Almendra",
+    "categoria": "Saborizantes",
+    "stock_actual": 4,
+    "unidad": "Botellas",
+    "estado": "Óptimo"
   }
 ]

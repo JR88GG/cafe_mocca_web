@@ -20,8 +20,7 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/admin.css">
-
-    </head>
+</head>
 <body class="d-flex flex-column min-vh-100 bg-light">
 
     <div class="mocca-admin-wrapper d-flex min-vh-100 position-relative">
@@ -109,29 +108,7 @@
                                             <th>Estado</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fw-semibold">Café en Grano (Especialidad)</td>
-                                            <td>Materia Prima</td>
-                                            <td>12.5</td>
-                                            <td>Kg</td>
-                                            <td><span class="badge bg-success">Óptimo</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-semibold">Leche Entera</td>
-                                            <td>Lácteos</td>
-                                            <td>3.0</td>
-                                            <td>Litros</td>
-                                            <td><span class="badge bg-danger">Bajo Stock</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-semibold">Harina de Trigo Preparada</td>
-                                            <td>Repostería</td>
-                                            <td>25.0</td>
-                                            <td>Kg</td>
-                                            <td><span class="badge bg-success">Óptimo</span></td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="tbody-insumos"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -148,20 +125,7 @@
                                             <th>Precio Venta</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="fw-semibold">Pastel Tres Leches (Porción)</td>
-                                            <td>Pastelería</td>
-                                            <td>8 unidades</td>
-                                            <td>$3.50</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-semibold">Baguette Jamón y Queso</td>
-                                            <td>Bistro</td>
-                                            <td>5 unidades</td>
-                                            <td>$4.25</td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="tbody-productos"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -179,22 +143,7 @@
                                             <th>Detalle / Motivo</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>20 Oct 2026</td>
-                                            <td><span class="badge bg-primary">Compra</span></td>
-                                            <td>Café en Grano</td>
-                                            <td>+10 Kg</td>
-                                            <td>Proveedor Local Usulután</td>
-                                        </tr>
-                                        <tr>
-                                            <td>20 Oct 2026</td>
-                                            <td><span class="badge bg-danger">Merma</span></td>
-                                            <td>Leche Entera</td>
-                                            <td>-2 Litros</td>
-                                            <td>Fecha de vencimiento alcanzada</td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="tbody-movimientos"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -225,7 +174,7 @@
                     <div class="modal-body vstack gap-2 py-3">
                         
                         <div>
-                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e">Tipo de Movimiento *</label>
+                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e" for="select-tipo-movimiento">Tipo de Movimiento *</label>
                             <select class="form-select form-select-mocca" id="select-tipo-movimiento" required>
                                 <option value="compra" selected>📦 Compra (Ingreso de Stock)</option>
                                 <option value="merma">🗑️ Merma (Pérdida / Desecho)</option>
@@ -234,22 +183,19 @@
                         </div>
 
                         <div>
-                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e">Insumo / Producto *</label>
-                            <select class="form-select form-select-mocca" required>
+                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e" for="select-insumo-movimiento">Insumo / Producto *</label>
+                            <select class="form-select form-select-mocca" id="select-insumo-movimiento" required>
                                 <option value="">Seleccionar elemento...</option>
-                                <option value="1">Café en Grano (Especialidad)</option>
-                                <option value="2">Leche Entera</option>
-                                <option value="3">Harina de Trigo Preparada</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e">Cantidad *</label>
+                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e" for="input-cantidad-movimiento">Cantidad *</label>
                             <input type="number" step="0.01" min="0.01" class="form-control form-control-mocca" id="input-cantidad-movimiento" placeholder="Ej. 5.0" required>
                         </div>
 
                         <div id="campo-motivo-merma" class="d-none">
-                            <label class="form-label fw-semibold small mb-1 text-danger">Motivo de Merma *</label>
+                            <label class="form-label fw-semibold small mb-1 text-danger" for="input-motivo-merma">Motivo de Merma *</label>
                             <select class="form-select form-select-mocca" id="input-motivo-merma">
                                 <option value="">Seleccionar motivo...</option>
                                 <option value="vencimiento">Producto Vencido</option>
@@ -259,7 +205,7 @@
                         </div>
 
                         <div id="campo-costo-compra">
-                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e">Costo Total ($) *</label>
+                            <label class="form-label fw-semibold small mb-1 mocca-u-b0166e" for="input-costo-compra">Costo Total ($) *</label>
                             <input type="number" step="0.01" min="0.01" class="form-control form-control-mocca" placeholder="0.00" id="input-costo-compra">
                         </div>
 
@@ -275,30 +221,145 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const selectTipo = document.getElementById('select-tipo-movimiento');
-        const campoMerma = document.getElementById('campo-motivo-merma');
-        const inputMerma = document.getElementById('input-motivo-merma');
-        const campoCompra = document.getElementById('campo-costo-compra');
-        const inputCompra = document.getElementById('input-costo-compra');
+        document.addEventListener('DOMContentLoaded', () => {
+            const cacheBuster = '?t=' + Date.now();
 
-        selectTipo.addEventListener('change', () => {
-            const valor = selectTipo.value;
-            if (valor === 'merma') {
-                campoMerma.classList.remove('d-none');
-                inputMerma.setAttribute('required', 'required');
-                campoCompra.classList.add('d-none');
-                inputCompra.removeAttribute('required');
-            } else if (valor === 'compra') {
-                campoCompra.classList.remove('d-none');
-                inputCompra.setAttribute('required', 'required');
-                campoMerma.classList.add('d-none');
-                inputMerma.removeAttribute('required');
-            } else {
-                campoMerma.classList.add('d-none');
-                inputMerma.removeAttribute('required');
-                campoCompra.classList.add('d-none');
-                inputCompra.removeAttribute('required');
-            }
+            // 1. Cargar los 20 Insumos desde ../data/insumos.json
+            fetch('../data/insumos.json' + cacheBuster)
+                .then(res => res.json())
+                .then(insumos => {
+                    const tbodyInsumos = document.getElementById('tbody-insumos');
+                    const selectInsumo = document.getElementById('select-insumo-movimiento');
+                    tbodyInsumos.textContent = '';
+
+                    insumos.forEach(item => {
+                        const tr = document.createElement('tr');
+
+                        const tdNombre = document.createElement('td');
+                        tdNombre.className = 'fw-semibold';
+                        tdNombre.textContent = item.nombre;
+
+                        const tdCat = document.createElement('td');
+                        tdCat.textContent = item.categoria;
+
+                        const tdStock = document.createElement('td');
+                        tdStock.textContent = item.stock_actual;
+
+                        const tdUnidad = document.createElement('td');
+                        tdUnidad.textContent = item.unidad;
+
+                        const tdEstado = document.createElement('td');
+                        const badge = document.createElement('span');
+                        let claseBadge = 'badge bg-success';
+                        if (item.estado === 'Bajo Stock') claseBadge = 'badge bg-warning text-dark';
+                        if (item.estado === 'Crítico') claseBadge = 'badge bg-danger';
+                        badge.className = claseBadge;
+                        badge.textContent = item.estado;
+                        tdEstado.appendChild(badge);
+
+                        tr.append(tdNombre, tdCat, tdStock, tdUnidad, tdEstado);
+                        tbodyInsumos.appendChild(tr);
+
+                        // Agregar también al selector del modal
+                        const opt = document.createElement('option');
+                        opt.value = item.id;
+                        opt.textContent = item.nombre + ' (' + item.unidad + ')';
+                        selectInsumo.appendChild(opt);
+                    });
+                })
+                .catch(err => console.error('Error cargando insumos:', err));
+
+            // 2. Cargar Productos Terminados desde ../data/productos.json
+            fetch('../data/productos.json' + cacheBuster)
+                .then(res => res.json())
+                .then(productos => {
+                    const tbodyProductos = document.getElementById('tbody-productos');
+                    tbodyProductos.textContent = '';
+
+                    productos.forEach(prod => {
+                        const tr = document.createElement('tr');
+
+                        const tdNombre = document.createElement('td');
+                        tdNombre.className = 'fw-semibold';
+                        tdNombre.textContent = prod.nombre.replace(' (Ejemplo)', '');
+
+                        const tdCat = document.createElement('td');
+                        tdCat.textContent = prod.categoria;
+
+                        const tdDisp = document.createElement('td');
+                        tdDisp.textContent = prod.disponible_hoy ? 'En vitrina (Disponible)' : 'Bajo pedido';
+
+                        const tdPrecio = document.createElement('td');
+                        tdPrecio.textContent = '$' + Number(prod.precio_base).toFixed(2);
+
+                        tr.append(tdNombre, tdCat, tdDisp, tdPrecio);
+                        tbodyProductos.appendChild(tr);
+                    });
+                })
+                .catch(err => console.error('Error cargando productos:', err));
+
+            // 3. Cargar Movimientos desde ../data/movimientos.json
+            fetch('../data/movimientos.json' + cacheBuster)
+                .then(res => res.json())
+                .then(movimientos => {
+                    const tbodyMov = document.getElementById('tbody-movimientos');
+                    tbodyMov.textContent = '';
+
+                    movimientos.forEach(mov => {
+                        const tr = document.createElement('tr');
+
+                        const tdFecha = document.createElement('td');
+                        tdFecha.textContent = mov.fecha ? mov.fecha.split('T')[0] : '2026-10-25';
+
+                        const tdTipo = document.createElement('td');
+                        const badge = document.createElement('span');
+                        const esEntrada = mov.tipo && mov.tipo.toLowerCase() === 'entrada';
+                        badge.className = esEntrada ? 'badge bg-primary' : 'badge bg-danger';
+                        badge.textContent = esEntrada ? 'Compra / Entrada' : 'Salida / Merma';
+                        tdTipo.appendChild(badge);
+
+                        const tdElem = document.createElement('td');
+                        tdElem.textContent = mov.insumo;
+
+                        const tdCant = document.createElement('td');
+                        const signo = esEntrada ? '+' : '-';
+                        tdCant.textContent = `${signo}${mov.cantidad} ${mov.unidad || ''}`;
+
+                        const tdMotivo = document.createElement('td');
+                        tdMotivo.textContent = mov.motivo;
+
+                        tr.append(tdFecha, tdTipo, tdElem, tdCant, tdMotivo);
+                        tbodyMov.appendChild(tr);
+                    });
+                })
+                .catch(err => console.error('Error cargando movimientos:', err));
+
+            // 4. Lógica del Modal de Movimientos
+            const selectTipo = document.getElementById('select-tipo-movimiento');
+            const campoMerma = document.getElementById('campo-motivo-merma');
+            const inputMerma = document.getElementById('input-motivo-merma');
+            const campoCompra = document.getElementById('campo-costo-compra');
+            const inputCompra = document.getElementById('input-costo-compra');
+
+            selectTipo.addEventListener('change', () => {
+                const valor = selectTipo.value;
+                if (valor === 'merma') {
+                    campoMerma.classList.remove('d-none');
+                    inputMerma.setAttribute('required', 'required');
+                    campoCompra.classList.add('d-none');
+                    inputCompra.removeAttribute('required');
+                } else if (valor === 'compra') {
+                    campoCompra.classList.remove('d-none');
+                    inputCompra.setAttribute('required', 'required');
+                    campoMerma.classList.add('d-none');
+                    inputMerma.removeAttribute('required');
+                } else {
+                    campoMerma.classList.add('d-none');
+                    inputMerma.removeAttribute('required');
+                    campoCompra.classList.add('d-none');
+                    inputCompra.removeAttribute('required');
+                }
+            });
         });
     </script>
 </body>
