@@ -795,7 +795,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /**
  * Formatea un valor numérico a moneda USD ($)
  */
-export function formatUSD(amount) {
+function formatUSD(amount) {
     const numericAmount = Number(amount) || 0;
     return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -806,7 +806,7 @@ export function formatUSD(amount) {
 /**
  * Convierte una fecha en formato UTC a fecha/hora local legible
  */
-export function formatDate(utcDateString) {
+function formatDate(utcDateString) {
     if (!utcDateString) return '';
     const date = new Date(utcDateString);
     return date.toLocaleString();
@@ -815,7 +815,7 @@ export function formatDate(utcDateString) {
 /**
  * Muestra una alerta visual tipo Toast en la interfaz sin innerHTML (seguro contra XSS)
  */
-export function showToast(message, type = 'success') {
+function showToast(message, type = 'success') {
     let container = document.getElementById('toast-container');
     if (!container) {
         container = document.createElement('div');

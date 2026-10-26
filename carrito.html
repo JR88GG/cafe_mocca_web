@@ -20,61 +20,14 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif !important;
-            background-color: var(--mocca-crema, #FAF6F0) !important;
-            color: var(--mocca-texto, #2C1810) !important;
-        }
-
-        .font-title {
-            font-family: 'Montserrat', sans-serif !important;
-        }
-
-        .btn-mocca-primary {
-            background-color: var(--mocca-cafe, #783B26) !important;
-            border-color: var(--mocca-cafe, #783B26) !important;
-            color: #FFFFFF !important;
-            border-radius: 10px;
-            padding: 10px 20px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .btn-mocca-primary:hover:not(:disabled) {
-            background-color: #5C2D1D !important;
-            border-color: #5C2D1D !important;
-        }
-
-        .btn-mocca-secondary {
-            background-color: var(--mocca-rosa, #F9CEDF) !important;
-            color: var(--mocca-cafe, #783B26) !important;
-            border: 1px solid var(--mocca-rosa, #F9CEDF) !important;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .btn-mocca-secondary:hover {
-            background-color: #F4B8CE !important;
-            color: var(--mocca-cafe, #783B26) !important;
-        }
-
-        .mocca-card {
-            border-radius: 12px !important;
-            border: 1px solid #E5DCD3 !important;
-            background-color: #FFFFFF !important;
-        }
-    </style>
-</head>
+    </head>
 <body class="d-flex flex-column min-vh-100">
 
     <!-- Header / Navbar Oficial Adaptado de Jaime -->
     <header class="sticky-top bg-white border-bottom shadow-sm py-2">
         <nav class="navbar navbar-expand-lg container">
-            <a class="navbar-brand font-title fw-bold fs-5 d-flex align-items-center gap-2" style="color: var(--mocca-cafe, #783B26);" href="catalogo.html">
-                <img src="img/logo/logo-cafe-mocca.webp" alt="Café Mocca Logo" width="35" height="35" style="object-fit: contain;">
+            <a class="navbar-brand font-title fw-bold fs-5 d-flex align-items-center gap-2 mocca-u-b0166e" href="catalogo.html">
+                <img class="mocca-u-48e076" src="img/logo/logo-cafe-mocca.webp" alt="Café Mocca Logo" width="35" height="35" loading="lazy">
                 <span>Café Mocca</span>
             </a>
 
@@ -87,7 +40,7 @@
                     <li class="nav-item"><a class="mocca-nav-link nav-link" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="mocca-nav-link nav-link" href="catalogo.html">Menú y Catálogo</a></li>
                     <li class="nav-item"><a class="mocca-nav-link nav-link" href="personalizar.html">Personalizar Pastel</a></li>
-                    <li class="nav-item"><a class="mocca-nav-link nav-link active fw-bold" aria-current="page" href="carrito.html" style="color: var(--mocca-cafe, #783B26);">🛒 Carrito</a></li>
+                    <li class="nav-item"><a class="mocca-nav-link nav-link active fw-bold mocca-u-b0166e" aria-current="page" href="carrito.html">🛒 Carrito</a></li>
                     <li class="nav-item"><a class="mocca-nav-link nav-link" href="seguimiento.html">Seguimiento</a></li>
                     <li class="nav-item"><a class="mocca-nav-link nav-link" href="nosotros.html">Nosotros</a></li>
                     <li class="nav-item"><a class="mocca-nav-link nav-link" href="login.html"><i class="bi bi-person me-1" aria-hidden="true"></i>Cuenta</a></li>
@@ -100,7 +53,7 @@
     <main class="container py-4 flex-grow-1">
         <div class="row mb-3">
             <div class="col-12">
-                <h1 class="font-title fw-bold fs-4 mb-1" style="color: var(--mocca-cafe, #783B26);">Tu Carrito de Compras</h1>
+                <h1 class="font-title fw-bold fs-4 mb-1 mocca-u-b0166e">Tu Carrito de Compras</h1>
                 <p class="text-muted small">Revisa tus productos seleccionados antes de proceder al pago.</p>
             </div>
         </div>
@@ -118,8 +71,8 @@
 
             <!-- Resumen y Checkout -->
             <div class="col-12 col-lg-4">
-                <div class="mocca-card p-4 shadow-sm position-sticky" style="top: 80px;">
-                    <h2 class="font-title fw-bold fs-6 mb-3 pb-2 border-bottom" style="color: var(--mocca-cafe, #783B26);">Resumen de la Orden</h2>
+                <div class="mocca-card p-4 shadow-sm position-sticky mocca-u-95e44e">
+                    <h2 class="font-title fw-bold fs-6 mb-3 pb-2 border-bottom mocca-u-b0166e">Resumen de la Orden</h2>
                     
                     <div class="vstack gap-2 mb-3">
                         <div class="d-flex justify-content-between small text-muted">
@@ -130,7 +83,7 @@
                             <span>Envío estimado</span>
                             <span id="cart-envio">$3.00</span>
                         </div>
-                        <div class="d-flex justify-content-between font-title fw-bold fs-5 pt-2 border-top" style="color: var(--mocca-cafe, #783B26);">
+                        <div class="d-flex justify-content-between font-title fw-bold fs-5 pt-2 border-top mocca-u-b0166e">
                             <span>Total</span>
                             <span id="cart-total">$3.00</span>
                         </div>
@@ -212,19 +165,19 @@
                 html += `
                     <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
                         <div class="d-flex align-items-center gap-3">
-                            <img src="${imgRuta}" alt="${item.nombre}" width="60" height="60" class="rounded-3 shadow-sm" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy">
+                            <img src="${imgRuta}" alt="${item.nombre}" width="60" height="60" class="rounded-3 shadow-sm mocca-u-072bce" loading="lazy">
                             <div>
-                                <h6 class="mb-1 fw-semibold" style="color: var(--mocca-texto, #2C1810);">${item.nombre}</h6>
+                                <h6 class="mb-1 fw-semibold mocca-u-0ed0a1">${item.nombre}</h6>
                                 <small class="text-muted">$${item.precio.toFixed(2)} c/u</small>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <div class="input-group input-group-sm" style="width: 100px;">
+                            <div class="input-group input-group-sm mocca-u-e3d221">
                                 <button class="btn btn-outline-secondary px-2" type="button" onclick="window.updateQuantity(${index}, -1)">-</button>
                                 <input type="text" class="form-control text-center bg-white" value="${item.cantidad}" readonly>
                                 <button class="btn btn-outline-secondary px-2" type="button" onclick="window.updateQuantity(${index}, 1)">+</button>
                             </div>
-                            <span class="fw-semibold text-end" style="color: var(--mocca-cafe, #783B26); width: 60px;">$${itemTotal.toFixed(2)}</span>
+                            <span class="fw-semibold text-end mocca-u-574f25">$${itemTotal.toFixed(2)}</span>
                             <button class="btn btn-link text-danger p-0 ms-2" onclick="window.removeItem(${index})" title="Eliminar">🗑️</button>
                         </div>
                     </div>

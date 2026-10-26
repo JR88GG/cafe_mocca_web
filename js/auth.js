@@ -1,10 +1,9 @@
 // js/auth.js
-import { showToast } from './ui.js';
 
 /**
  * Inicia sesión enviando credenciales
  */
-export async function loginUser(email, password) {
+async function loginUser(email, password) {
     try {
         const formData = new URLSearchParams();
         formData.append('username', email);
@@ -40,7 +39,7 @@ export async function loginUser(email, password) {
 /**
  * Cierra la sesión del usuario limpiando el sessionStorage
  */
-export function logoutUser() {
+function logoutUser() {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
     window.location.href = '/login.html';
@@ -49,6 +48,6 @@ export function logoutUser() {
 /**
  * Verifica si el usuario tiene un token activo
  */
-export function isAuthenticated() {
+function isAuthenticated() {
     return !!sessionStorage.getItem('token');
 }

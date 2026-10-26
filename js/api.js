@@ -1,10 +1,9 @@
 // js/api.js
-import { API_BASE_URL } from './config.js';
 
 /**
  * Wrapper centralizado de fetch con inyección de JWT y manejo de errores HTTP
  */
-export async function apiFetch(endpoint, options = {}) {
+async function apiFetch(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
     
     // El token JWT se almacena exclusivamente en sessionStorage

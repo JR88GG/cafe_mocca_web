@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "insumo_id": 1,
+    "insumo": "Café en grano especialidad",
+    "tipo": "entrada",
+    "cantidad": 10,
+    "unidad": "kg",
+    "fecha": "2026-10-24T08:30:00",
+    "motivo": "Compra semanal proveedor"
+  },
+  {
+    "id": 2,
+    "insumo_id": 2,
+    "insumo": "Fresa fresca seleccionada",
+    "tipo": "salida",
+    "cantidad": 3,
+    "unidad": "kg",
+    "fecha": "2026-10-25T10:15:00",
+    "motivo": "Producción de tartaletas y crepas"
+  },
+  {
+    "id": 3,
+    "insumo_id": 3,
+    "insumo": "Crema de avellanas (Nutella)",
+    "tipo": "salida",
+    "cantidad": 1.5,
+    "unidad": "kg",
+    "fecha": "2026-10-25T14:00:00",
+    "motivo": "Elaboración de crepas dulces"
+  }
+]

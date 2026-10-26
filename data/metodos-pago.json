@@ -1,0 +1,20 @@
+[
+  {
+    "id": "efectivo",
+    "nombre": "Efectivo contra entrega / en local",
+    "requiere_comprobante": false,
+    "activo": true
+  },
+  {
+    "id": "transferencia",
+    "nombre": "Transferencia Bancaria (Banco Cuscatlán / Agrícola)",
+    "requiere_comprobante": true,
+    "activo": true
+  },
+  {
+    "id": "tarjeta",
+    "nombre": "Tarjeta de Débito / Crédito (POS)",
+    "requiere_comprobante": false,
+    "activo": true
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "titulo": "Alerta de reabastecimiento: Fresa fresca y Crema pastelera",
+    "categoria": "Inventario",
+    "impacto": "Alto",
+    "descripcion": "Las ventas de Tartaleta de Frutas y Crepa de Fresa aumentaron un 28% este fin de semana. Se recomienda programar pedido de 8 kg adicionales para evitar quiebre de stock.",
+    "accion_sugerida": "Generar orden de compra",
+    "fecha": "2026-10-25"
+  },
+  {
+    "id": 2,
+    "titulo": "Promoción sugerida en hora valle (2:00 p.m. - 4:00 p.m.)",
+    "categoria": "Ventas",
+    "impacto": "Medio",
+    "descripcion": "Combo tarde Bistro: Crepa Dulce + Cappuccino Clásico con 10% de descuento para impulsar el ticket promedio vespertino.",
+    "accion_sugerida": "Activar en catálogo",
+    "fecha": "2026-10-25"
+  }
+]

@@ -1,12 +1,11 @@
 // js/carrito.js
-import { formatUSD } from './ui.js';
 
 const CART_STORAGE_KEY = 'mocca_cart';
 
 /**
  * Obtiene los elementos del carrito desde el localStorage del navegador
  */
-export function getCart() {
+function getCart() {
     const cartJson = localStorage.getItem(CART_STORAGE_KEY);
     return cartJson ? JSON.parse(cartJson) : [];
 }
@@ -14,7 +13,7 @@ export function getCart() {
 /**
  * Guarda los cambios del carrito y actualiza la UI
  */
-export function saveCart(cart) {
+function saveCart(cart) {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
     updateCartCountUI();
 }
@@ -22,7 +21,7 @@ export function saveCart(cart) {
 /**
  * Agrega un producto al carrito
  */
-export function addToCart(product, quantity = 1, options = {}) {
+function addToCart(product, quantity = 1, options = {}) {
     const cart = getCart();
     const existingIndex = cart.findIndex(item => item.id === product.id);
 
@@ -45,7 +44,7 @@ export function addToCart(product, quantity = 1, options = {}) {
 /**
  * Modifica la cantidad de un producto específico
  */
-export function updateQuantity(productId, newQuantity) {
+function updateQuantity(productId, newQuantity) {
     let cart = getCart();
     if (newQuantity <= 0) {
         cart = cart.filter(item => item.id !== productId);
@@ -59,7 +58,7 @@ export function updateQuantity(productId, newQuantity) {
 /**
  * Elimina un producto del carrito
  */
-export function removeFromCart(productId) {
+function removeFromCart(productId) {
     let cart = getCart();
     cart = cart.filter(item => item.id !== productId);
     saveCart(cart);
@@ -68,7 +67,7 @@ export function removeFromCart(productId) {
 /**
  * Calcula el subtotal preliminar del carrito
  */
-export function calculateCartTotal() {
+function calculateCartTotal() {
     const cart = getCart();
     return cart.reduce((sum, item) => sum + (item.precio_base * item.quantity), 0);
 }
@@ -76,7 +75,7 @@ export function calculateCartTotal() {
 /**
  * Actualiza el indicador numérico del carrito en el navbar usando textContent
  */
-export function updateCartCountUI() {
+function updateCartCountUI() {
     const cart = getCart();
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     

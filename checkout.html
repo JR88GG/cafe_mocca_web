@@ -20,88 +20,14 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif !important;
-            background-color: var(--mocca-crema, #FAF6F0) !important;
-            color: var(--mocca-texto, #2C1810) !important;
-        }
-
-        .font-title {
-            font-family: 'Montserrat', sans-serif !important;
-        }
-
-        .btn-mocca-primary,
-        .btn-mocca-primary:focus,
-        .btn-mocca-primary:active {
-            background-color: var(--mocca-cafe, #783B26) !important;
-            border-color: var(--mocca-cafe, #783B26) !important;
-            color: #FFFFFF !important;
-            border-radius: 10px;
-            padding: 8px 16px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .btn-mocca-primary:hover:not(:disabled) {
-            background-color: #5C2D1D !important;
-            border-color: #5C2D1D !important;
-            color: #FFFFFF !important;
-        }
-
-        .btn-mocca-secondary {
-            background-color: var(--mocca-rosa, #F9CEDF) !important;
-            color: var(--mocca-cafe, #783B26) !important;
-            border: 1px solid var(--mocca-rosa, #F9CEDF) !important;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .form-control-mocca, .form-select-mocca {
-            border-radius: 8px;
-            border: 1.5px solid #E5DCD3;
-            padding: 6px 10px;
-            background-color: #FDFBF7;
-            font-size: 0.85rem;
-        }
-
-        .form-control-mocca:focus, .form-select-mocca:focus {
-            border-color: var(--mocca-cafe, #783B26);
-            box-shadow: 0 0 0 3px rgba(120, 59, 38, 0.15);
-            background-color: #FFF;
-        }
-
-        .mocca-card {
-            border-radius: 12px !important;
-            border: 1px solid #E5DCD3 !important;
-            background-color: #FFFFFF !important;
-            height: auto !important;
-        }
-
-        .form-check-custom {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            margin-bottom: 0;
-        }
-
-        .form-check-custom input[type="radio"] {
-            margin-top: 0;
-            cursor: pointer;
-        }
-    </style>
-</head>
+    </head>
 <body class="d-flex flex-column min-vh-100">
 
     <!-- Header Navbar Oficial Adaptado de Jaime -->
     <header class="sticky-top bg-white border-bottom shadow-sm py-2">
         <nav class="navbar navbar-expand-lg container">
-            <a class="navbar-brand font-title fw-bold fs-5 d-flex align-items-center gap-2" style="color: var(--mocca-cafe, #783B26);" href="catalogo.html">
-                <img src="img/logo/logo-cafe-mocca.webp" alt="Café Mocca Logo" width="35" height="35" style="object-fit: contain;">
+            <a class="navbar-brand font-title fw-bold fs-5 d-flex align-items-center gap-2 mocca-u-b0166e" href="catalogo.html">
+                <img class="mocca-u-48e076" src="img/logo/logo-cafe-mocca.webp" alt="Café Mocca Logo" width="35" height="35" loading="lazy">
                 <span>Café Mocca</span>
             </a>
 
@@ -126,7 +52,7 @@
     <!-- Contenido Principal -->
     <main class="container py-4 flex-grow-1">
         <!-- Alerta de estado -->
-        <div id="checkout-alert" class="alert d-none mb-3 border-0 rounded-3 py-2 small" role="alert" style="background-color: var(--mocca-error-bg, #FCE8E6); color: var(--mocca-error-fg, #A50E0E);">
+        <div id="checkout-alert" class="alert d-none mb-3 border-0 rounded-3 py-2 small mocca-u-52c76a" role="alert">
             <span id="checkout-alert-message"></span>
         </div>
 
@@ -136,11 +62,11 @@
                 <!-- Columna Izquierda: Datos de Entrega y Pago -->
                 <div class="col-12 col-lg-7">
                     <div class="mocca-card p-3 shadow-sm">
-                        <h2 class="font-title fw-bold fs-6 mb-2" style="color: var(--mocca-cafe, #783B26);">1. Tipo de Entrega y Datos</h2>
+                        <h1 class="font-title fw-bold fs-6 mb-2 mocca-u-b0166e">1. Tipo de Entrega y Datos</h1>
                         
                         <!-- Selector Tipo de Entrega -->
                         <div class="mb-3">
-                            <label class="form-label fw-semibold text-uppercase mb-1" style="color: var(--mocca-cafe, #783B26); font-size: 0.7rem;">Modalidad de Entrega</label>
+                            <label class="form-label fw-semibold text-uppercase mb-1 mocca-u-9092f1">Modalidad de Entrega</label>
                             <div class="d-flex gap-4">
                                 <label class="form-check-custom small fw-semibold">
                                     <input class="form-check-input" type="radio" name="tipoEntrega" id="entregaDomicilio" value="domicilio" checked>
@@ -155,22 +81,22 @@
 
                         <div class="row g-2 mb-3">
                             <div class="col-12 col-sm-6">
-                                <label for="nombre-envio" class="form-label fw-semibold text-uppercase mb-1" style="color: var(--mocca-cafe, #783B26); font-size: 0.7rem;">Nombre Completo</label>
+                                <label for="nombre-envio" class="form-label fw-semibold text-uppercase mb-1 mocca-u-9092f1">Nombre Completo</label>
                                 <input type="text" class="form-control form-control-mocca" id="nombre-envio" placeholder="Ej. Rodrigo Flores" required>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <label for="telefono-envio" class="form-label fw-semibold text-uppercase mb-1" style="color: var(--mocca-cafe, #783B26); font-size: 0.7rem;">Teléfono / WhatsApp</label>
+                                <label for="telefono-envio" class="form-label fw-semibold text-uppercase mb-1 mocca-u-9092f1">Teléfono / WhatsApp</label>
                                 <input type="tel" class="form-control form-control-mocca" id="telefono-envio" placeholder="7000-0000" required>
                             </div>
                             <div class="col-12" id="campo-direccion-container">
-                                <label for="direccion-detallada" class="form-label fw-semibold text-uppercase mb-1" style="color: var(--mocca-cafe, #783B26); font-size: 0.7rem;">Dirección de Entrega (Usulután)</label>
+                                <label for="direccion-detallada" class="form-label fw-semibold text-uppercase mb-1 mocca-u-9092f1">Dirección de Entrega (Usulután)</label>
                                 <input type="text" class="form-control form-control-mocca" id="direccion-detallada" placeholder="Colonia, pasaje, número de casa..." required>
                             </div>
                         </div>
 
                         <!-- Métodos de Pago -->
                         <div class="pt-2 border-top">
-                            <label class="form-label fw-semibold text-uppercase mb-1" style="color: var(--mocca-cafe, #783B26); font-size: 0.7rem;">2. Método de Pago</label>
+                            <label class="form-label fw-semibold text-uppercase mb-1 mocca-u-9092f1">2. Método de Pago</label>
                             <div class="d-flex flex-wrap gap-3 align-items-center">
                                 <label class="form-check-custom small fw-semibold">
                                     <input class="form-check-input" type="radio" name="metodoPago" id="pagoEfectivo" value="efectivo" checked>
@@ -185,7 +111,7 @@
                                     <span>🏦 Transferencia Bancaria</span>
                                 </label>
                             </div>
-                            <small class="text-muted d-block mt-1" style="font-size: 0.72rem;">* No se solicitarán datos de tarjeta en el sitio web.</small>
+                            <small class="text-muted d-block mt-1 mocca-u-606efc">* No se solicitarán datos de tarjeta en el sitio web.</small>
                         </div>
                     </div>
                 </div>
@@ -193,22 +119,22 @@
                 <!-- Columna Derecha: Resumen del Pedido con fotos reales -->
                 <div class="col-12 col-lg-5">
                     <div class="mocca-card p-3 shadow-sm">
-                        <h2 class="font-title fw-bold fs-6 mb-2 pb-1 border-bottom" style="color: var(--mocca-cafe, #783B26);">Resumen del Pedido</h2>
+                        <h2 class="font-title fw-bold fs-6 mb-2 pb-1 border-bottom mocca-u-b0166e">Resumen del Pedido</h2>
                         
-                        <div id="checkout-items-list" class="vstack gap-2 mb-3" style="max-height: 220px; overflow-y: auto;">
-                            <div class="text-center text-muted small py-1" style="font-size: 0.8rem;">Cargando productos...</div>
+                        <div id="checkout-items-list" class="vstack gap-2 mb-3 mocca-u-c1f277">
+                            <div class="text-center text-muted small py-1 mocca-u-fb2a71">Cargando productos...</div>
                         </div>
 
                         <div class="vstack gap-1 border-top pt-2 mb-3">
-                            <div class="d-flex justify-content-between text-muted" style="font-size: 0.8rem;">
+                            <div class="d-flex justify-content-between text-muted mocca-u-fb2a71">
                                 <span>Subtotal</span>
                                 <span id="checkout-subtotal">$0.00</span>
                             </div>
-                            <div class="d-flex justify-content-between text-muted" style="font-size: 0.8rem;">
+                            <div class="d-flex justify-content-between text-muted mocca-u-fb2a71">
                                 <span>Envío</span>
                                 <span id="checkout-envio">$3.00</span>
                             </div>
-                            <div class="d-flex justify-content-between font-title fw-bold fs-6 pt-1 border-top" style="color: var(--mocca-cafe, #783B26);">
+                            <div class="d-flex justify-content-between font-title fw-bold fs-6 pt-1 border-top mocca-u-b0166e">
                                 <span>Total</span>
                                 <span id="checkout-total">$3.00</span>
                             </div>
@@ -229,7 +155,7 @@
     <!-- Footer -->
     <footer class="py-2 text-center bg-white border-top mt-auto">
         <div class="container">
-            <p class="small text-muted mb-0" style="font-size: 0.75rem;">&copy; 2026 Café Mocca · Pastelería y Bistro. Todos los derechos reservados.</p>
+            <p class="small text-muted mb-0 mocca-u-af89d6">&copy; 2026 Café Mocca · Pastelería y Bistro. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -292,15 +218,15 @@
                     : 'img/productos/barista-latte-art.webp';
 
                 htmlContent += `
-                    <div class="d-flex justify-content-between align-items-center py-1 border-bottom" style="font-size: 0.85rem;">
+                    <div class="d-flex justify-content-between align-items-center py-1 border-bottom mocca-u-e7992d">
                         <div class="d-flex align-items-center gap-2">
-                            <img src="${imgRuta}" alt="${item.nombre}" width="40" height="40" class="rounded-2 shadow-sm" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy">
+                            <img src="${imgRuta}" alt="${item.nombre}" width="40" height="40" class="rounded-2 shadow-sm mocca-u-072bce" loading="lazy">
                             <div>
-                                <span class="d-block fw-semibold text-truncate" style="max-width: 140px; color: var(--mocca-texto, #2C1810);">${item.nombre}</span>
+                                <span class="d-block fw-semibold text-truncate mocca-u-e19bd4">${item.nombre}</span>
                                 <small class="text-muted">x${item.cantidad} ($${item.precio.toFixed(2)})</small>
                             </div>
                         </div>
-                        <span class="fw-semibold" style="color: var(--mocca-cafe, #783B26);">$${totalItem.toFixed(2)}</span>
+                        <span class="fw-semibold mocca-u-b0166e">$${totalItem.toFixed(2)}</span>
                     </div>
                 `;
             });

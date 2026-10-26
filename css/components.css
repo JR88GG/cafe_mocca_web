@@ -263,3 +263,473 @@
 .mocca-footer a:hover {
   text-decoration: underline;
 }
+
+
+/* === CLASES AUTO-EXTRAÍDAS DE UNIFICACIÓN === */
+/* Extraído de carrito.html */
+body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, var(--mocca-crema)) !important;
+            color: var(--mocca-texto, var(--mocca-texto)) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .btn-mocca-primary {
+            background-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            color: var(--mocca-blanco) !important;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mocca-primary:hover:not(:disabled) {
+            background-color: var(--mocca-cafe-hover) !important;
+            border-color: var(--mocca-cafe-hover) !important;
+        }
+
+        .btn-mocca-secondary {
+            background-color: var(--mocca-rosa, var(--mocca-rosa)) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border: 1px solid var(--mocca-rosa, var(--mocca-rosa)) !important;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-mocca-secondary:hover {
+            background-color: var(--mocca-rosa-hover) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid var(--mocca-borde) !important;
+            background-color: var(--mocca-blanco) !important;
+        }
+
+/* Extraído de checkout.html */
+body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, var(--mocca-crema)) !important;
+            color: var(--mocca-texto, var(--mocca-texto)) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .btn-mocca-primary,
+        .btn-mocca-primary:focus,
+        .btn-mocca-primary:active {
+            background-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            color: var(--mocca-blanco) !important;
+            border-radius: 10px;
+            padding: 8px 16px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mocca-primary:hover:not(:disabled) {
+            background-color: var(--mocca-cafe-hover) !important;
+            border-color: var(--mocca-cafe-hover) !important;
+            color: var(--mocca-blanco) !important;
+        }
+
+        .btn-mocca-secondary {
+            background-color: var(--mocca-rosa, var(--mocca-rosa)) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border: 1px solid var(--mocca-rosa, var(--mocca-rosa)) !important;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .form-control-mocca, .form-select-mocca {
+            border-radius: 8px;
+            border: 1.5px solid var(--mocca-borde);
+            padding: 6px 10px;
+            background-color: var(--mocca-crema);
+            font-size: 0.85rem;
+        }
+
+        .form-control-mocca:focus, .form-select-mocca:focus {
+            border-color: var(--mocca-cafe, var(--mocca-cafe));
+            box-shadow: 0 0 0 3px rgba(120, 59, 38, 0.15);
+            background-color: var(--mocca-blanco);
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid var(--mocca-borde) !important;
+            background-color: var(--mocca-blanco) !important;
+            height: auto !important;
+        }
+
+        .form-check-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .form-check-custom input[type="radio"] {
+            margin-top: 0;
+            cursor: pointer;
+        }
+
+/* Extraído de login.html */
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--mocca-crema, var(--mocca-crema));
+            color: var(--mocca-texto, var(--mocca-texto));
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Pestañas de Autenticación (Tabs) */
+        .nav-tabs .nav-link {
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border: none !important;
+            border-bottom: 2px solid transparent !important;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            background-color: transparent !important;
+            border-bottom: 2px solid var(--mocca-cafe, var(--mocca-cafe)) !important;
+        }
+
+        /* Único Botón Primario por Pantalla: --mocca-cafe con texto blanco */
+        .btn-mocca-primary,
+        .btn-mocca-primary:focus,
+        .btn-mocca-primary:active {
+            background-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            color: var(--mocca-blanco) !important;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mocca-primary:hover:not(:disabled) {
+            background-color: var(--mocca-cafe-hover) !important;
+            border-color: var(--mocca-cafe-hover) !important;
+            color: var(--mocca-blanco) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(120, 59, 38, 0.25) !important;
+        }
+
+        /* Botón Secundario según Spec: --mocca-rosa (var(--mocca-rosa)) y texto --mocca-cafe */
+        .btn-mocca-secondary {
+            background-color: var(--mocca-rosa, var(--mocca-rosa)) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border: 1px solid var(--mocca-rosa, var(--mocca-rosa)) !important;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-mocca-secondary:hover {
+            background-color: var(--mocca-rosa-hover) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+        }
+
+        .form-control-mocca {
+            border-radius: 10px;
+            border: 1.5px solid var(--mocca-borde);
+            padding: 12px 16px;
+            background-color: var(--mocca-crema);
+        }
+
+        .form-control-mocca:focus {
+            border-color: var(--mocca-cafe, var(--mocca-cafe));
+            box-shadow: 0 0 0 4px rgba(120, 59, 38, 0.15);
+            background-color: var(--mocca-blanco);
+        }
+
+        .btn-toggle-eye {
+            border-color: var(--mocca-borde);
+            border-left: none;
+            background-color: var(--mocca-crema);
+            cursor: pointer;
+        }
+
+        .btn-toggle-eye:hover {
+            background-color: var(--mocca-crema);
+        }
+
+/* Extraído de nosotros.html */
+body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, var(--mocca-crema)) !important;
+            color: var(--mocca-texto, var(--mocca-texto)) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .btn-mocca-secondary {
+            background-color: var(--mocca-rosa, var(--mocca-rosa)) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border: 1px solid var(--mocca-rosa, var(--mocca-rosa)) !important;
+            border-radius: 30px !important;
+            font-weight: 600 !important;
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+        }
+
+        .btn-mocca-secondary:hover {
+            background-color: var(--mocca-rosa-hover) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid var(--mocca-borde) !important;
+            background-color: var(--mocca-blanco) !important;
+            height: auto !important;
+        }
+
+/* Extraído de seguimiento.html */
+body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, var(--mocca-crema)) !important;
+            color: var(--mocca-texto, var(--mocca-texto)) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .btn-mocca-secondary {
+            background-color: var(--mocca-rosa, var(--mocca-rosa)) !important;
+            color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            border: 1px solid var(--mocca-rosa, var(--mocca-rosa)) !important;
+            border-radius: 30px !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid var(--mocca-borde) !important;
+            background-color: var(--mocca-blanco) !important;
+            height: auto !important;
+        }
+
+        /* Stepper de estado */
+        .step-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .step-progress-line {
+            position: absolute;
+            top: 16px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background-color: var(--mocca-borde);
+            z-index: 1;
+        }
+
+        .step-progress-fill {
+            position: absolute;
+            top: 16px;
+            left: 10%;
+            width: 33%;
+            height: 3px;
+            background-color: var(--mocca-cafe, var(--mocca-cafe));
+            z-index: 1;
+        }
+
+        .step-item {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-icon-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--mocca-borde);
+            color: var(--mocca-texto-sec);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin: 0 auto 4px auto;
+        }
+
+        .step-item.completed .step-icon-box {
+            background-color: var(--mocca-cafe, var(--mocca-cafe));
+            color: var(--mocca-blanco);
+        }
+
+        .step-item.active .step-icon-box {
+            background-color: var(--mocca-rosa, var(--mocca-rosa));
+            color: var(--mocca-cafe, var(--mocca-cafe));
+            border: 2px solid var(--mocca-cafe, var(--mocca-cafe));
+        }
+
+        .badge-cancelled {
+            background-color: var(--mocca-error-bg, var(--mocca-error-bg)) !important;
+            color: var(--mocca-error-fg, var(--mocca-error-fg)) !important;
+            border: 1px solid var(--mocca-error-bg) !important;
+        }
+
+        .card-cancelled-alert {
+            background-color: var(--mocca-error-bg, var(--mocca-error-bg)) !important;
+            color: var(--mocca-error-fg, var(--mocca-error-fg)) !important;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            border: 1px solid var(--mocca-error-bg);
+        }
+
+/* Extraído de admin/inventario.html */
+body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, var(--mocca-crema)) !important;
+            color: var(--mocca-texto, var(--mocca-texto)) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid var(--mocca-borde) !important;
+            background-color: var(--mocca-blanco) !important;
+        }
+
+        .btn-mocca-primary {
+            background-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            color: var(--mocca-blanco) !important;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .btn-mocca-primary:hover {
+            background-color: var(--mocca-cafe-hover) !important;
+            color: var(--mocca-blanco) !important;
+        }
+
+        .nav-tabs-mocca .nav-link {
+            color: var(--mocca-texto, var(--mocca-texto));
+            font-weight: 600;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 10px 20px;
+        }
+
+        .nav-tabs-mocca .nav-link.active {
+            color: var(--mocca-cafe, var(--mocca-cafe));
+            border-bottom: 2px solid var(--mocca-cafe, var(--mocca-cafe));
+            background: transparent;
+        }
+
+        .form-control-mocca, .form-select-mocca {
+            border-radius: 8px;
+            border: 1.5px solid var(--mocca-borde);
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 992px) {
+            .main-content-wrapper {
+                margin-left: 260px;
+            }
+        }
+
+/* Extraído de admin/sugerencias-ia.html */
+body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, var(--mocca-crema)) !important;
+            color: var(--mocca-texto, var(--mocca-texto)) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid var(--mocca-borde) !important;
+            background-color: var(--mocca-blanco) !important;
+        }
+
+        .btn-mocca-primary {
+            background-color: var(--mocca-cafe, var(--mocca-cafe)) !important;
+            color: var(--mocca-blanco) !important;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .btn-mocca-primary:hover {
+            background-color: var(--mocca-cafe-hover) !important;
+            color: var(--mocca-blanco) !important;
+        }
+
+        .badge-ia {
+            background-color: var(--mocca-rosa, var(--mocca-rosa));
+            color: var(--mocca-cafe, var(--mocca-cafe));
+            font-weight: 600;
+        }
+
+        @media (min-width: 992px) {
+            .main-content-wrapper {
+                margin-left: 260px;
+            }
+        }
+
+.mocca-u-b0166e, [data-mocca-style="mocca-u-b0166e"] { color: var(--mocca-cafe, var(--mocca-cafe)); }
+.mocca-u-48e076, [data-mocca-style="mocca-u-48e076"] { object-fit: contain; }
+.mocca-u-95e44e, [data-mocca-style="mocca-u-95e44e"] { top: 80px; }
+.mocca-u-072bce, [data-mocca-style="mocca-u-072bce"] { object-fit: cover; aspect-ratio: 1/1; }
+.mocca-u-0ed0a1, [data-mocca-style="mocca-u-0ed0a1"] { color: var(--mocca-texto, var(--mocca-texto)); }
+.mocca-u-e3d221, [data-mocca-style="mocca-u-e3d221"] { width: 100px; }
+.mocca-u-574f25, [data-mocca-style="mocca-u-574f25"] { color: var(--mocca-cafe, var(--mocca-cafe)); width: 60px; }
+.mocca-u-52c76a, [data-mocca-style="mocca-u-52c76a"] { background-color: var(--mocca-error-bg, var(--mocca-error-bg)); color: var(--mocca-error-fg, var(--mocca-error-fg)); }
+.mocca-u-9092f1, [data-mocca-style="mocca-u-9092f1"] { color: var(--mocca-cafe, var(--mocca-cafe)); font-size: 0.7rem; }
+.mocca-u-606efc, [data-mocca-style="mocca-u-606efc"] { font-size: 0.72rem; }
+.mocca-u-c1f277, [data-mocca-style="mocca-u-c1f277"] { max-height: 220px; overflow-y: auto; }
+.mocca-u-fb2a71, [data-mocca-style="mocca-u-fb2a71"] { font-size: 0.8rem; }
+.mocca-u-af89d6, [data-mocca-style="mocca-u-af89d6"] { font-size: 0.75rem; }
+.mocca-u-e7992d, [data-mocca-style="mocca-u-e7992d"] { font-size: 0.85rem; }
+.mocca-u-e19bd4, [data-mocca-style="mocca-u-e19bd4"] { max-width: 140px; color: var(--mocca-texto, var(--mocca-texto)); }
+.mocca-u-9e196b, [data-mocca-style="mocca-u-9e196b"] { border-radius: 20px; }
+.mocca-u-e0829d, [data-mocca-style="mocca-u-e0829d"] { background-color: var(--mocca-cafe, var(--mocca-cafe)); }
+.mocca-u-b07cea, [data-mocca-style="mocca-u-b07cea"] { opacity: 0.35; }
+.mocca-u-5a2d59, [data-mocca-style="mocca-u-5a2d59"] { background-color: var(--mocca-rosa, var(--mocca-rosa)); color: var(--mocca-cafe, var(--mocca-cafe)); }
+.mocca-u-4c1f66, [data-mocca-style="mocca-u-4c1f66"] { background-color: var(--mocca-rosa, var(--mocca-rosa)); color: var(--mocca-cafe, var(--mocca-cafe)); font-weight: 600; }
+.mocca-u-778e1b, [data-mocca-style="mocca-u-778e1b"] { background-color: var(--mocca-rosa, var(--mocca-rosa)); color: var(--mocca-cafe, var(--mocca-cafe)); font-size: 0.75rem; }
+.mocca-u-2411b2, [data-mocca-style="mocca-u-2411b2"] { color: var(--mocca-cafe, var(--mocca-cafe)); font-size: 0.75rem; }
+.mocca-u-3e0306, [data-mocca-style="mocca-u-3e0306"] { width: 260px; z-index: 1045; }
+.mocca-u-dcab71, [data-mocca-style="mocca-u-dcab71"] { font-size: 0.7rem; }
+.mocca-u-19de0a, [data-mocca-style="mocca-u-19de0a"] { max-width: 1400px; }
