@@ -60,21 +60,22 @@ class Token(BaseModel):
 
 class ProductoCreate(BaseModel):
     nombre: str = Field(min_length=2, max_length=100)
-    precio: float = Field(gt=0)
+    categoria_id: int
+    descripcion: str | None = Field(max_length=500, default=None)
+    precio_base: float = Field(gt=0)
+    imagen_url: str | None = Field(max_length=500, default=None)
     stock: int = Field(ge=0)
 
 
 class ProductoOut(BaseModel):
     id: int
     nombre: str
-    precio: float
+    precio_base: float
     stock: int
-
-    class Config:
-        from_attributes = True
+    categoria_id: int
+    descripcion: str | None = None
+    imagen_url: str | None = None
     
-    nombre: str
-
     class Config:
         from_attributes = True
 
