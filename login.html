@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Mocca — Acceso de Usuarios</title>
+
+    <!-- Bootstrap 5.3 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts Oficiales: Montserrat (Títulos) e Inter (Cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Hojas de estilo obligatorias del proyecto -->
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--mocca-crema, #FAF6F0);
+            color: var(--mocca-texto, #2C1810);
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Pestañas de Autenticación (Tabs) */
+        .nav-tabs .nav-link {
+            color: var(--mocca-cafe, #783B26) !important;
+            border: none !important;
+            border-bottom: 2px solid transparent !important;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--mocca-cafe, #783B26) !important;
+            background-color: transparent !important;
+            border-bottom: 2px solid var(--mocca-cafe, #783B26) !important;
+        }
+
+        /* Único Botón Primario por Pantalla: --mocca-cafe con texto blanco */
+        .btn-mocca-primary,
+        .btn-mocca-primary:focus,
+        .btn-mocca-primary:active {
+            background-color: var(--mocca-cafe, #783B26) !important;
+            border-color: var(--mocca-cafe, #783B26) !important;
+            color: #FFFFFF !important;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mocca-primary:hover:not(:disabled) {
+            background-color: #5C2D1D !important;
+            border-color: #5C2D1D !important;
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(120, 59, 38, 0.25) !important;
+        }
+
+        /* Botón Secundario según Spec: --mocca-rosa (#F9CEDF) y texto --mocca-cafe */
+        .btn-mocca-secondary {
+            background-color: var(--mocca-rosa, #F9CEDF) !important;
+            color: var(--mocca-cafe, #783B26) !important;
+            border: 1px solid var(--mocca-rosa, #F9CEDF) !important;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-mocca-secondary:hover {
+            background-color: #F4B8CE !important;
+            color: var(--mocca-cafe, #783B26) !important;
+        }
+
+        .form-control-mocca {
+            border-radius: 10px;
+            border: 1.5px solid #E5DCD3;
+            padding: 12px 16px;
+            background-color: #FDFBF7;
+        }
+
+        .form-control-mocca:focus {
+            border-color: var(--mocca-cafe, #783B26);
+            box-shadow: 0 0 0 4px rgba(120, 59, 38, 0.15);
+            background-color: #FFF;
+        }
+
+        .btn-toggle-eye {
+            border-color: #E5DCD3;
+            border-left: none;
+            background-color: #FDFBF7;
+            cursor: pointer;
+        }
+
+        .btn-toggle-eye:hover {
+            background-color: #F4EFEA;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header Navbar Minimalista -->
+    <header class="mocca-navbar sticky-top navbar navbar-expand-lg bg-white border-bottom shadow-sm py-2 py-md-3">
+        <div class="container">
+            <a class="navbar-brand font-title fw-bold fs-5 d-flex align-items-center gap-2" style="color: var(--mocca-cafe, #783B26);" href="catalogo.html">
+                <img src="img/logo/logo-cafe-mocca.webp" alt="Café Mocca Logo" width="35" height="35" style="object-fit: contain;">
+                <span>Café Mocca</span>
+            </a>
+            <div class="ms-auto">
+                <a href="catalogo.html" class="btn btn-mocca-secondary btn-sm px-3 py-2">
+                    Explorar Catálogo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal Split-Screen -->
+    <main class="container my-auto py-4 py-md-5 flex-grow-1 d-flex align-items-center">
+        <div class="row justify-content-center w-100 g-0">
+            <div class="col-12 col-lg-10 col-xl-9">
+                
+                <div class="mocca-card overflow-hidden shadow-lg border-0 bg-white" style="border-radius: 20px;">
+                    <div class="row g-0">
+                        
+                        <!-- Columna Izquierda: Banner Visual con Resguardo de Imagen -->
+                        <div class="col-md-5 position-relative d-none d-md-flex flex-column justify-content-between p-5 text-white" style="background-color: var(--mocca-cafe, #783B26);">
+                            <img src="img/productos/bistro-hero.webp" 
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop';" 
+                                 alt="Especialidades y café artesanal en Café Mocca" 
+                                 width="600" 
+                                 height="800" 
+                                 loading="lazy" 
+                                 class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                                 style="opacity: 0.35;">
+                            
+                            <div class="position-relative z-1">
+                                <span class="badge px-3 py-2 rounded-pill fw-semibold mb-3" style="background-color: var(--mocca-rosa, #F9CEDF); color: var(--mocca-cafe, #783B26);">
+                                    Bistro & Bakery
+                                </span>
+                                <h2 class="font-title display-6 fw-bold mb-3 text-white">Café Mocca</h2>
+                                <p class="small opacity-90 leading-relaxed mb-0">
+                                    El aroma del grano recién tostado y la alta repostería artesanal en una experiencia única.
+                                </p>
+                            </div>
+
+                            <div class="position-relative z-1 pt-4 border-top border-light border-opacity-25">
+                                <p class="small opacity-75 mb-0 fst-italic">"Un buen café convierte cualquier lugar en un hogar."</p>
+                            </div>
+                        </div>
+
+                        <!-- Columna Derecha: Contenedor con Pestañas (Tabs) -->
+                        <div class="col-12 col-md-7 p-4 p-sm-5 bg-white d-flex flex-column justify-content-center">
+                            
+                            <!-- Pestañas para alternar entre Login y Registro -->
+                            <ul class="nav nav-tabs nav-justified border-bottom mb-4" id="authTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active py-2" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-panel" type="button" role="tab">
+                                        Iniciar Sesión
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link py-2" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-panel" type="button" role="tab">
+                                        Crear Cuenta
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <!-- Alerta de Error Común -->
+                            <div id="auth-alert" class="alert d-none mb-3 border-0 rounded-3" role="alert" style="background-color: var(--mocca-error-bg, #FCE8E6); color: var(--mocca-error-fg, #A50E0E);">
+                                <span id="auth-alert-message"></span>
+                            </div>
+
+                            <div class="tab-content" id="authTabsContent">
+                                
+                                <!-- PANEL 1: INICIAR SESIÓN -->
+                                <div class="tab-pane fade show active" id="login-panel" role="tabpanel">
+                                    <form id="form-login" novalidate>
+                                        <div class="mb-3">
+                                            <label for="login-email" class="form-label fw-semibold small text-uppercase" style="color: var(--mocca-cafe, #783B26);">Correo Electrónico</label>
+                                            <input type="email" class="form-control form-control-mocca" id="login-email" placeholder="usuario@cafemocca.com" required autocomplete="email">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="login-password" class="form-label fw-semibold small text-uppercase" style="color: var(--mocca-cafe, #783B26);">Contraseña</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-mocca border-end-0" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+                                                <button class="btn btn-toggle-eye rounded-end-3 px-3" type="button" id="toggle-login-password" aria-label="Mostrar u ocultar contraseña">👁️</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-grid gap-2 mt-4">
+                                            <button type="submit" id="btn-login-submit" class="btn btn-mocca-primary min-touch-target fw-bold">
+                                                Ingresar a mi Cuenta
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- PANEL 2: CREAR CUENTA -->
+                                <div class="tab-pane fade" id="register-panel" role="tabpanel">
+                                    <form id="form-register" novalidate>
+                                        <div class="mb-3">
+                                            <label for="reg-nombre" class="form-label fw-semibold small text-uppercase" style="color: var(--mocca-cafe, #783B26);">Nombre Completo</label>
+                                            <input type="text" class="form-control form-control-mocca" id="reg-nombre" placeholder="Rodrigo Flores" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="reg-email" class="form-label fw-semibold small text-uppercase" style="color: var(--mocca-cafe, #783B26);">Correo Electrónico</label>
+                                            <input type="email" class="form-control form-control-mocca" id="reg-email" placeholder="usuario@cafemocca.com" required autocomplete="email">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="reg-password" class="form-label fw-semibold small text-uppercase" style="color: var(--mocca-cafe, #783B26);">Contraseña</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-mocca border-end-0" id="reg-password" placeholder="••••••••" required autocomplete="new-password">
+                                                <button class="btn btn-toggle-eye rounded-end-3 px-3" type="button" id="toggle-reg-password" aria-label="Mostrar u ocultar contraseña">👁️</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-grid gap-2 mt-4">
+                                            <button type="submit" id="btn-reg-submit" class="btn btn-mocca-primary min-touch-target fw-bold">
+                                                Registrarme en Café Mocca
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-3 text-center bg-white border-top mt-auto">
+        <div class="container">
+            <p class="small text-muted mb-0">&copy; 2026 Café Mocca. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de Autenticación y UI -->
+    <script type="module">
+        import { loginUser } from './js/auth.js';
+
+        const alertContainer = document.getElementById('auth-alert');
+        const alertMsg = document.getElementById('auth-alert-message');
+
+        function showAlert(message) {
+            alertContainer.classList.remove('d-none');
+            alertMsg.textContent = message;
+        }
+
+        function hideAlert() {
+            alertContainer.classList.add('d-none');
+        }
+
+        function setupPasswordToggle(inputId, toggleBtnId) {
+            const btn = document.getElementById(toggleBtnId);
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const input = document.getElementById(inputId);
+                    if (input) {
+                        const isPassword = input.type === 'password';
+                        input.type = isPassword ? 'text' : 'password';
+                        btn.textContent = isPassword ? '🙈' : '👁️';
+                    }
+                });
+            }
+        }
+
+        setupPasswordToggle('login-password', 'toggle-login-password');
+        setupPasswordToggle('reg-password', 'toggle-reg-password');
+
+        document.getElementById('form-login').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideAlert();
+
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+
+            if (!email || !password) {
+                showAlert('Por favor completa todos los campos.');
+                return;
+            }
+
+            const btn = document.getElementById('btn-login-submit');
+            btn.disabled = true;
+            btn.textContent = 'Verificando...';
+
+            try {
+                const success = await loginUser(email, password);
+                if (success) {
+                    window.location.href = 'catalogo.html';
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = 'Ingresar a mi Cuenta';
+                }
+            } catch (error) {
+                showAlert(error.message || 'Credenciales incorrectas.');
+                btn.disabled = false;
+                btn.textContent = 'Ingresar a mi Cuenta';
+            }
+        });
+
+        document.getElementById('form-register').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideAlert();
+
+            const nombre = document.getElementById('reg-nombre').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const password = document.getElementById('reg-password').value.trim();
+
+            if (!nombre || !email || !password) {
+                showAlert('Por favor completa todos los campos requeridos.');
+                return;
+            }
+
+            const btn = document.getElementById('btn-reg-submit');
+            btn.disabled = true;
+            btn.textContent = 'Procesando...';
+
+            try {
+                if (typeof register === 'function') {
+                    await register({ nombre, email, password });
+                }
+                window.location.href = 'catalogo.html';
+            } catch (error) {
+                if (error.status === 422) {
+                    showAlert('Los datos ingresados no cumplen con el formato requerido.');
+                } else if (error.status === 429) {
+                    showAlert('Demasiadas solicitudes. Por favor espera unos minutos.');
+                } else {
+                    showAlert(error.message || 'Error al procesar el registro.');
+                }
+                btn.disabled = false;
+                btn.textContent = 'Registrarme en Café Mocca';
+            }
+        });
+    </script>
+</body>
+</html>

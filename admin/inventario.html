@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Mocca — Control de Inventario</title>
+
+    <!-- Bootstrap 5.3 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Hojas de estilo del proyecto -->
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: var(--mocca-crema, #FAF6F0) !important;
+            color: var(--mocca-texto, #2C1810) !important;
+        }
+
+        .font-title {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        .mocca-card {
+            border-radius: 12px !important;
+            border: 1px solid #E5DCD3 !important;
+            background-color: #FFFFFF !important;
+        }
+
+        .btn-mocca-primary {
+            background-color: var(--mocca-cafe, #783B26) !important;
+            color: #FFFFFF !important;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .btn-mocca-primary:hover {
+            background-color: #5C2D1D !important;
+            color: #FFFFFF !important;
+        }
+
+        .nav-tabs-mocca .nav-link {
+            color: var(--mocca-texto, #2C1810);
+            font-weight: 600;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 10px 20px;
+        }
+
+        .nav-tabs-mocca .nav-link.active {
+            color: var(--mocca-cafe, #783B26);
+            border-bottom: 2px solid var(--mocca-cafe, #783B26);
+            background: transparent;
+        }
+
+        .form-control-mocca, .form-select-mocca {
+            border-radius: 8px;
+            border: 1.5px solid #E5DCD3;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 992px) {
+            .main-content-wrapper {
+                margin-left: 260px;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <div class="mocca-admin-wrapper d-flex min-vh-100 position-relative">
+        
+        <!-- Sidebar Fijo en Desktop (>=992px) y Offcanvas en Móvil (<992px) -->
+        <aside class="offcanvas-lg offcanvas-start mocca-sidebar d-flex flex-column justify-content-between p-3 border-end bg-white position-fixed h-100" tabindex="-1" id="sidebarAdmin" aria-labelledby="sidebarAdminLabel" style="width: 260px; z-index: 1045;">
+            <div>
+                <div class="d-flex align-items-center justify-content-between pb-3 mb-3 border-bottom">
+                    <a href="../index.html" class="text-decoration-none d-flex align-items-center gap-2">
+                        <img src="../img/logo/logo-cafe-mocca.webp" alt="Logo Café Mocca" width="110" height="36" style="object-fit: contain;" loading="lazy">
+                    </a>
+                    <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarAdmin" aria-label="Cerrar menú lateral"></button>
+                </div>
+                <p id="sidebarAdminLabel" class="small texto-suave fw-semibold text-uppercase px-2 mb-2 text-muted" style="font-size: 0.7rem;">Panel Administrativo</p>
+
+                <nav aria-label="Menú de administración">
+                    <ul class="list-unstyled d-flex flex-column gap-1 mb-0">
+                        <li><a href="dashboard.html" class="mocca-side-link nav-link px-2 py-2 rounded text-dark"><i class="bi bi-bar-chart-fill me-2" aria-hidden="true"></i>Dashboard</a></li>
+                        <li><a href="pedidos.html" class="mocca-side-link nav-link px-2 py-2 rounded text-dark"><i class="bi bi-box-seam me-2" aria-hidden="true"></i>Pedidos</a></li>
+                        <li><a href="inventario.html" class="mocca-side-link nav-link px-2 py-2 rounded active fw-bold" aria-current="page" style="background-color: var(--mocca-rosa, #F9CEDF); color: var(--mocca-cafe, #783B26);"><i class="bi bi-clipboard-data me-2" aria-hidden="true"></i>Inventario</a></li>
+                        <li><a href="sugerencias-ia.html" class="mocca-side-link nav-link px-2 py-2 rounded text-dark"><i class="bi bi-stars me-2" aria-hidden="true"></i>Sugerencias IA</a></li>
+                        <li><a href="catalogo.html" class="mocca-side-link nav-link px-2 py-2 rounded text-dark"><i class="bi bi-cup-hot me-2" aria-hidden="true"></i>Catálogo y Recetas</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="pt-3 border-top small text-muted text-center">
+                <span>Café Mocca Admin v2.0</span>
+            </div>
+        </aside>
+
+        <!-- Contenedor Principal de la Página -->
+        <div class="flex-grow-1 d-flex flex-column main-content-wrapper w-100">
+            
+            <!-- Header Navbar Superior para Móviles y Acceso Rápido -->
+            <header class="navbar navbar-expand-lg bg-white border-bottom shadow-sm py-2 px-3 sticky-top">
+                <div class="container-fluid px-0">
+                    <button class="btn btn-outline-secondary d-lg-none me-2 btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarAdmin" aria-controls="sidebarAdmin" aria-label="Abrir menú lateral">
+                        <i class="bi bi-list fs-5"></i>
+                    </button>
+                    <span class="font-title fw-bold fs-5" style="color: var(--mocca-cafe, #783B26);">📦 Control de Inventario</span>
+                    <div class="ms-auto d-flex gap-2">
+                        <a href="sugerencias-ia.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3">Sugerencias IA</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenido Principal -->
+            <main class="container-fluid p-4 flex-grow-1" style="max-width: 1400px;">
+                
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+                    <div>
+                        <h1 class="font-title fw-bold fs-4 mb-1" style="color: var(--mocca-cafe, #783B26);">Gestión de Stock y Movimientos</h1>
+                        <p class="text-muted small mb-0">Control en tiempo real de insumos, stock de productos terminados y registro de mermas/compras.</p>
+                    </div>
+                    <button class="btn btn-mocca-primary btn-sm px-3 py-2" data-bs-toggle="modal" data-bs-target="#modalMovimiento">
+                        ➕ Registrar Movimiento
+                    </button>
+                </div>
+
+                <div class="mocca-card p-3 shadow-sm mb-4">
+                    <ul class="nav nav-tabs nav-tabs-mocca mb-3" id="inventarioTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="tab-insumos" data-bs-toggle="tab" data-bs-target="#panel-insumos" type="button" role="tab">1. Insumos</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab-productos" data-bs-toggle="tab" data-bs-target="#panel-productos" type="button" role="tab">2. Productos Terminados</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab-movimientos" data-bs-toggle="tab" data-bs-target="#panel-movimientos" type="button" role="tab">3. Movimientos</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="inventarioTabsContent">
+                        
+                        <!-- PESTAÑA 1: INSUMOS -->
+                        <div class="tab-pane fade show active" id="panel-insumos" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle small mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Insumo</th>
+                                            <th>Categoría</th>
+                                            <th>Stock Actual</th>
+                                            <th>Unidad</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-semibold">Café en Grano (Especialidad)</td>
+                                            <td>Materia Prima</td>
+                                            <td>12.5</td>
+                                            <td>Kg</td>
+                                            <td><span class="badge bg-success">Óptimo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-semibold">Leche Entera</td>
+                                            <td>Lácteos</td>
+                                            <td>3.0</td>
+                                            <td>Litros</td>
+                                            <td><span class="badge bg-danger">Bajo Stock</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-semibold">Harina de Trigo Preparada</td>
+                                            <td>Repostería</td>
+                                            <td>25.0</td>
+                                            <td>Kg</td>
+                                            <td><span class="badge bg-success">Óptimo</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- PESTAÑA 2: PRODUCTOS TERMINADOS -->
+                        <div class="tab-pane fade" id="panel-productos" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle small mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Producto</th>
+                                            <th>Categoría</th>
+                                            <th>Disponible</th>
+                                            <th>Precio Venta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-semibold">Pastel Tres Leches (Porción)</td>
+                                            <td>Pastelería</td>
+                                            <td>8 unidades</td>
+                                            <td>$3.50</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-semibold">Baguette Jamón y Queso</td>
+                                            <td>Bistro</td>
+                                            <td>5 unidades</td>
+                                            <td>$4.25</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- PESTAÑA 3: MOVIMIENTOS -->
+                        <div class="tab-pane fade" id="panel-movimientos" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle small mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Tipo</th>
+                                            <th>Elemento</th>
+                                            <th>Cantidad</th>
+                                            <th>Detalle / Motivo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>20 Oct 2026</td>
+                                            <td><span class="badge bg-primary">Compra</span></td>
+                                            <td>Café en Grano</td>
+                                            <td>+10 Kg</td>
+                                            <td>Proveedor Local Usulután</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20 Oct 2026</td>
+                                            <td><span class="badge bg-danger">Merma</span></td>
+                                            <td>Leche Entera</td>
+                                            <td>-2 Litros</td>
+                                            <td>Fecha de vencimiento alcanzada</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- Footer -->
+            <footer class="py-3 text-center bg-white border-top mt-auto">
+                <div class="container-fluid">
+                    <p class="small text-muted mb-0" style="font-size: 0.75rem;">&copy; 2026 Café Mocca · Pastelería y Bistro.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODAL EMERGENTE: REGISTRAR MOVIMIENTO -->
+    <div class="modal fade" id="modalMovimiento" tabindex="-1" aria-labelledby="modalMovimientoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title font-title fw-bold fs-6" id="modalMovimientoLabel" style="color: var(--mocca-cafe, #783B26);">Registrar Movimiento de Inventario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form-movimiento" novalidate>
+                    <div class="modal-body vstack gap-2 py-3">
+                        
+                        <div>
+                            <label class="form-label fw-semibold small mb-1" style="color: var(--mocca-cafe, #783B26);">Tipo de Movimiento *</label>
+                            <select class="form-select form-select-mocca" id="select-tipo-movimiento" required>
+                                <option value="compra" selected>📦 Compra (Ingreso de Stock)</option>
+                                <option value="merma">🗑️ Merma (Pérdida / Desecho)</option>
+                                <option value="ajuste">⚙️ Ajuste Manual</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="form-label fw-semibold small mb-1" style="color: var(--mocca-cafe, #783B26);">Insumo / Producto *</label>
+                            <select class="form-select form-select-mocca" required>
+                                <option value="">Seleccionar elemento...</option>
+                                <option value="1">Café en Grano (Especialidad)</option>
+                                <option value="2">Leche Entera</option>
+                                <option value="3">Harina de Trigo Preparada</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="form-label fw-semibold small mb-1" style="color: var(--mocca-cafe, #783B26);">Cantidad *</label>
+                            <input type="number" step="0.01" min="0.01" class="form-control form-control-mocca" id="input-cantidad-movimiento" placeholder="Ej. 5.0" required>
+                        </div>
+
+                        <div id="campo-motivo-merma" class="d-none">
+                            <label class="form-label fw-semibold small mb-1 text-danger">Motivo de Merma *</label>
+                            <select class="form-select form-select-mocca" id="input-motivo-merma">
+                                <option value="">Seleccionar motivo...</option>
+                                <option value="vencimiento">Producto Vencido</option>
+                                <option value="dano">Dañado / Derramado</option>
+                                <option value="calidad">Falla de Calidad</option>
+                            </select>
+                        </div>
+
+                        <div id="campo-costo-compra">
+                            <label class="form-label fw-semibold small mb-1" style="color: var(--mocca-cafe, #783B26);">Costo Total ($) *</label>
+                            <input type="number" step="0.01" min="0.01" class="form-control form-control-mocca" placeholder="0.00" id="input-costo-compra">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer border-top py-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-mocca-primary btn-sm px-3">Guardar Movimiento</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const selectTipo = document.getElementById('select-tipo-movimiento');
+        const campoMerma = document.getElementById('campo-motivo-merma');
+        const inputMerma = document.getElementById('input-motivo-merma');
+        const campoCompra = document.getElementById('campo-costo-compra');
+        const inputCompra = document.getElementById('input-costo-compra');
+
+        selectTipo.addEventListener('change', () => {
+            const valor = selectTipo.value;
+            if (valor === 'merma') {
+                campoMerma.classList.remove('d-none');
+                inputMerma.setAttribute('required', 'required');
+                campoCompra.classList.add('d-none');
+                inputCompra.removeAttribute('required');
+            } else if (valor === 'compra') {
+                campoCompra.classList.remove('d-none');
+                inputCompra.setAttribute('required', 'required');
+                campoMerma.classList.add('d-none');
+                inputMerma.removeAttribute('required');
+            } else {
+                campoMerma.classList.add('d-none');
+                inputMerma.removeAttribute('required');
+                campoCompra.classList.add('d-none');
+                inputCompra.removeAttribute('required');
+            }
+        });
+    </script>
+</body>
+</html>
